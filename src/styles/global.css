@@ -226,7 +226,7 @@ a {
   position: absolute;
   display: block;
   border-radius: 999px;
-  filter: blur(34px);
+  filter: blur(18px);
   opacity: 0.7;
   mix-blend-mode: screen;
   will-change: transform;
@@ -263,7 +263,7 @@ a {
   top: 42%;
   border-radius: 48% 52% 50% 50%;
   background: linear-gradient(90deg, rgba(252, 231, 239, 0.02), rgba(224, 69, 123, 0.3), rgba(13, 27, 42, 0.2));
-  filter: blur(26px);
+  filter: blur(14px);
   opacity: 0.48;
   transform: rotate(-18deg);
 }
@@ -274,7 +274,7 @@ a {
   left: 42%;
   top: 6%;
   background: rgba(252, 231, 239, 0.12);
-  filter: blur(42px);
+  filter: blur(22px);
   opacity: 0.38;
 }
 
@@ -288,7 +288,7 @@ a {
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.14) inset,
     0 36px 90px rgba(0, 0, 0, 0.36);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
 }
 
 .generative-stage::before {
@@ -334,7 +334,7 @@ a {
   border-radius: 0.5rem;
   background: rgba(16, 18, 20, 0.72);
   box-shadow: 0 24px 54px rgba(0, 0, 0, 0.28);
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(8px);
   transition:
     border-color var(--motion-panel) var(--ease-expressive),
     transform var(--motion-panel) var(--ease-expressive);
