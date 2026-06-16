@@ -26,7 +26,13 @@
     "stage_agent_lanes": ["PM", "Design", "Frontend", "Review", "Brand"],
     "stage_gate": "Review gate",
     "stage_ship": "Ship",
-    "stage_ship_detail": "Ready for merge"
+    "stage_ship_detail": "Ready for merge",
+    "proof_label": "Azaman proof points",
+    "proof_points": [
+      { "kicker": "01 / brief", "label": "The brief is visible" },
+      { "kicker": "02 / crew", "label": "Expert roles assemble" },
+      { "kicker": "03 / gate", "label": "A human approves ship" }
+    ]
   },
 
   "how_it_works": {
@@ -39,6 +45,33 @@
     "step_2_desc": "PM plans. Design prototypes. Frontend builds. Review gates. All on Discord, in parallel.",
     "step_3_title": "You gate & ship.",
     "step_3_desc": "Every key decision — spec, design, merge — needs your approval. When you say go, it ships."
+  },
+
+  "orchestration": {
+    "label": "Orchestration sequence",
+    "manifesto": "Autonomy is useful only when the gate is visible.",
+    "steps": [
+      {
+        "kicker": "brief",
+        "title": "Describe the outcome once.",
+        "body": "The PM turns the request into a task board, constraints, and a visible route to ship."
+      },
+      {
+        "kicker": "crew",
+        "title": "Specialists assemble around the work.",
+        "body": "Design, frontend, brand, and review move in parallel instead of waiting in a handoff queue."
+      },
+      {
+        "kicker": "gate",
+        "title": "You keep the keys.",
+        "body": "Scope, design direction, visual lock, and merge all stop at a human approval point."
+      },
+      {
+        "kicker": "ship",
+        "title": "The artifact leaves with a record.",
+        "body": "The reviewer checks the build, verifies the gates, and merges only what was actually reviewed."
+      }
+    ]
   },
 
   "features": {

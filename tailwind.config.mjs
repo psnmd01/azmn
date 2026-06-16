@@ -41,6 +41,19 @@ export default {
           '"Segoe UI"',
           'sans-serif',
         ],
+        display: [
+          '"Fraunces Variable"',
+          'Georgia',
+          'serif',
+        ],
+        mono: [
+          '"Space Mono"',
+          '"JetBrains Mono"',
+          'ui-monospace',
+          'SFMono-Regular',
+          'Menlo',
+          'monospace',
+        ],
       },
       fontSize: {
         eyebrow: ['0.75rem', { lineHeight: '1rem', fontWeight: '700' }],

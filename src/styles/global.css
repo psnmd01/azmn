@@ -4,12 +4,50 @@
 
 @font-face {
   font-family: "Inter";
-  /* Relative to the bundled stylesheet (_astro/) so it resolves correctly under
-     any base (root or the /azmn/ GitHub Pages subpath). */
-  src: url("../fonts/inter-var.woff2") format("woff2");
+  src: url("../../node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../../node_modules/@fontsource/inter/files/inter-latin-500-normal.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../../node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Fraunces Variable";
+  src: url("../../node_modules/@fontsource-variable/fraunces/files/fraunces-latin-standard-normal.woff2") format("woff2-variations");
   font-display: swap;
   font-style: normal;
   font-weight: 100 900;
+}
+
+@font-face {
+  font-family: "Space Mono";
+  src: url("../../node_modules/@fontsource/space-mono/files/space-mono-latin-400-normal.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Space Mono";
+  src: url("../../node_modules/@fontsource/space-mono/files/space-mono-latin-700-normal.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
 }
 
 :root {
@@ -23,6 +61,9 @@
   --color-accent-text: #861347;
   --color-accent-soft: #fce7ef;
   --color-footer-muted: #d8d2c7;
+  --color-mesh-plum: #3a0f24;
+  --color-mesh-magenta: #e0457b;
+  --color-mesh-ink: #0d1b2a;
 }
 
 html {
@@ -42,6 +83,14 @@ body {
     "Segoe UI",
     sans-serif;
   text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: 0;
+  font-family: "Fraunces Variable", Georgia, serif;
+  font-variation-settings: "SOFT" 74, "WONK" 1, "opsz" 72;
 }
 
 a {
@@ -93,6 +142,190 @@ a {
   }
 }
 
+.font-display {
+  font-variation-settings: "SOFT" 74, "WONK" 1, "opsz" 72;
+}
+
+.font-mono {
+  letter-spacing: 0;
+}
+
+.hero-section::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: 8rem;
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(180deg, rgba(16, 18, 20, 0), var(--color-page));
+  z-index: 1;
+}
+
+.hero-mesh {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(188, 42, 100, 0.24), transparent 30rem),
+    radial-gradient(circle at 82% 8%, rgba(224, 69, 123, 0.18), transparent 28rem),
+    linear-gradient(135deg, #0a0c10 0%, #160814 42%, #101214 100%);
+  z-index: -2;
+}
+
+.hero-mesh::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(90deg, transparent, #000 16%, #000 84%, transparent);
+}
+
+.hero-mesh__field {
+  position: absolute;
+  display: block;
+  border-radius: 999px;
+  filter: blur(34px);
+  opacity: 0.7;
+  mix-blend-mode: screen;
+}
+
+.hero-mesh__field--one {
+  width: 24rem;
+  height: 24rem;
+  right: 12%;
+  top: 12%;
+  background: rgba(188, 42, 100, 0.42);
+}
+
+.hero-mesh__field--two {
+  width: 19rem;
+  height: 19rem;
+  left: 8%;
+  bottom: 14%;
+  background: rgba(58, 15, 36, 0.86);
+}
+
+.hero-mesh__field--three {
+  width: 18rem;
+  height: 18rem;
+  right: 32%;
+  bottom: 10%;
+  background: rgba(13, 27, 42, 0.82);
+}
+
+.generative-stage {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0.5rem;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.04)),
+    rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.14) inset,
+    0 36px 90px rgba(0, 0, 0, 0.36);
+  backdrop-filter: blur(20px);
+}
+
+.stage-chrome {
+  padding: 1rem;
+}
+
+.crew-artifact {
+  position: relative;
+  min-height: 27rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  background:
+    radial-gradient(circle at 36% 30%, rgba(188, 42, 100, 0.22), transparent 16rem),
+    radial-gradient(circle at 80% 70%, rgba(13, 27, 42, 0.82), transparent 16rem),
+    rgba(10, 12, 16, 0.92);
+}
+
+.crew-artifact__lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.92;
+}
+
+.artifact-node {
+  position: absolute;
+  width: min(13rem, calc(50% - 1rem));
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 0.5rem;
+  background: rgba(16, 18, 20, 0.72);
+  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(14px);
+}
+
+.artifact-node--brief {
+  left: 5%;
+  top: 18%;
+}
+
+.artifact-node--crew {
+  left: 33%;
+  top: 32%;
+  width: min(16rem, calc(62% - 1rem));
+}
+
+.artifact-node--gate {
+  right: 5%;
+  top: 12%;
+}
+
+.artifact-node--ship {
+  right: 7%;
+  bottom: 10%;
+}
+
+.manifesto-band {
+  position: relative;
+  padding: 1.25rem;
+  border-left: 4px solid var(--color-accent);
+  border-radius: 0.5rem;
+  background:
+    linear-gradient(135deg, rgba(252, 231, 239, 0.72), rgba(255, 255, 255, 0.74)),
+    var(--color-surface);
+  box-shadow: 0 18px 44px rgba(17, 19, 21, 0.08);
+}
+
+.orchestration-scroll {
+  position: relative;
+}
+
+.orchestration-track {
+  position: absolute;
+  left: 1.5rem;
+  right: 1.5rem;
+  top: 1.5rem;
+  height: 2px;
+  display: none;
+  background: rgba(188, 42, 100, 0.14);
+}
+
+.orchestration-track span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--color-accent);
+}
+
+.orchestration-card {
+  position: relative;
+  border: 1px solid var(--color-line);
+  border-radius: 0.5rem;
+  background: var(--color-surface);
+  padding: 1.5rem;
+  box-shadow: 0 1px 0 rgba(17, 19, 21, 0.06), 0 22px 54px rgba(17, 19, 21, 0.08);
+}
+
 .hero-visual {
   background:
     linear-gradient(90deg, rgba(16, 18, 20, 0.08) 1px, transparent 1px),
@@ -125,6 +358,54 @@ html.reveal-ready [data-reveal] {
 html.reveal-ready [data-reveal].is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.split-word {
+  display: inline-block;
+}
+
+@media (min-width: 1024px) {
+  .orchestration-track {
+    display: block;
+  }
+
+  .orchestration-card {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .crew-artifact {
+    min-height: 32rem;
+  }
+
+  .artifact-node {
+    width: calc(100% - 2rem);
+  }
+
+  .artifact-node--brief,
+  .artifact-node--crew,
+  .artifact-node--gate,
+  .artifact-node--ship {
+    left: 1rem;
+    right: auto;
+  }
+
+  .artifact-node--brief {
+    top: 1rem;
+  }
+
+  .artifact-node--crew {
+    top: 8.5rem;
+  }
+
+  .artifact-node--gate {
+    top: 20rem;
+  }
+
+  .artifact-node--ship {
+    bottom: 1rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
