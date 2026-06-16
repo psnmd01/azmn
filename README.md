@@ -38,3 +38,15 @@ keys in the page markup. Design tokens live in `tailwind.config.mjs` and
 The Inter variable font is self-hosted from `public/fonts/inter-var.woff2` and
 preloaded in `src/pages/index.astro` so the intended type system renders without
 a runtime font service dependency.
+
+## Hosting (GitHub Pages)
+
+Auto-deploys to GitHub Pages on every push to `main` via
+`.github/workflows/deploy.yml`. Enable it once under **Settings → Pages → Build
+and deployment → Source: GitHub Actions**.
+
+Live at: **https://psnmd01.github.io/azmn/**
+
+`astro.config.mjs` sets `base: '/azmn'` so assets resolve under the project
+subpath. If you rename the repo or move to a custom domain, update `base`
+(root domain → `base: '/'`).
