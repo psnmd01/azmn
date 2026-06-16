@@ -114,8 +114,8 @@ const featureCardSpans = ['lg:col-span-4', 'lg:col-span-3', 'lg:col-span-3', 'lg
                 </span>
               </div>
 
-              <div class="hero-visual mt-4 grid gap-3 rounded-card bg-white p-3 text-ink sm:p-4 lg:grid-cols-[0.72fr_1fr_0.78fr]">
-                <div class="panel p-4 shadow-none">
+              <div class="hero-visual mt-4 grid gap-3 rounded-card bg-white p-3 text-ink sm:p-4 lg:grid-cols-[0.66fr_1.16fr_0.78fr]">
+                <div class="panel flex flex-col justify-between p-4 shadow-none">
                   <p class="text-caption text-ink-muted" data-i18n="hero.stage_brief">{copy.hero.stage_brief}</p>
                   <p class="mt-2 text-h4 text-ink" data-i18n="hero.stage_brief_detail">{copy.hero.stage_brief_detail}</p>
                   <div class="mt-5 h-2 rounded-control bg-surface-muted">
@@ -126,12 +126,14 @@ const featureCardSpans = ['lg:col-span-4', 'lg:col-span-3', 'lg:col-span-3', 'lg
                 <div class="relative rounded-card border border-border bg-surface p-4">
                   <div class="absolute left-0 right-0 top-1/2 hidden h-px -translate-y-1/2 bg-accent/40 lg:block"></div>
                   <p class="relative text-caption text-ink-muted" data-i18n="hero.stage_agents">{copy.hero.stage_agents}</p>
-                  <ul class="relative mt-3 grid gap-2 sm:grid-cols-5 lg:grid-cols-1 xl:grid-cols-5">
+                  <ul class="relative mt-3 grid grid-cols-2 gap-2">
                     {
                       copy.hero.stage_agent_lanes.map((lane, index) => (
-                        <li class="rounded-card border border-border bg-surface-raised p-3 shadow-card">
-                          <p class="text-caption text-ink-muted">{String(index + 1).padStart(2, '0')}</p>
-                          <p class="mt-1 text-body-sm font-bold text-ink" data-i18n={`hero.stage_agent_lanes.${index}`}>{lane}</p>
+                        <li class={`rounded-card border border-border bg-surface-raised p-2.5 shadow-card ${index === 4 ? 'col-span-2' : ''}`}>
+                          <p class="flex items-center gap-2 text-caption font-bold text-ink">
+                            <span class="text-ink-muted">{String(index + 1).padStart(2, '0')}</span>
+                            <span data-i18n={`hero.stage_agent_lanes.${index}`}>{lane}</span>
+                          </p>
                         </li>
                       ))
                     }
