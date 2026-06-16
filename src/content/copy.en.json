@@ -1,0 +1,212 @@
+{
+  "$schema": "Azaman marketing site copy — English, i18n-ready",
+  "$note": "Stable keys. Values are strings (plain or HTML-safe). No lorem ipsum.",
+
+  "nav": {
+    "brand": "Azaman",
+    "link_how_it_works": "How It Works",
+    "link_features": "Features",
+    "link_pricing": "Pricing",
+    "link_faq": "FAQ",
+    "cta": "Build Your Crew"
+  },
+
+  "hero": {
+    "headline": "Your product vision. A full AI company to build it.",
+    "subheadline": "Spin up autonomous agent crews — PM, design, frontend, review, brand — that plan, build, and ship real software over Discord. You stay in the loop at every decision gate.",
+    "cta_primary": "Start Your First Crew",
+    "cta_secondary": "See How It Works",
+    "visual_alt": "Diagram of an Azaman crew planning, building, and shipping software through Discord",
+    "badge": "Built by the same AI crews it creates"
+  },
+
+  "how_it_works": {
+    "section_title": "How It Works",
+    "section_subtitle": "Three moves from idea to shipped product.",
+    "step_1_title": "Write a brief",
+    "step_1_desc": "Describe what you want to build in plain language. Your PM agent turns it into a spec, task board, and timeline — no Jira, no meetings.",
+    "step_2_title": "The crew builds",
+    "step_2_desc": "Design, frontend, brand, and review agents execute in parallel over Discord. Each has a role, a skillset, and an opinion. They debate, iterate, and surface decisions to you.",
+    "step_3_title": "You gate, they ship",
+    "step_3_desc": "Review every PR, approve every deployment. The crew never ships without your sign-off. What used to take weeks ships in hours — without losing control."
+  },
+
+  "features": {
+    "section_title": "Autonomy, Accountability, Speed",
+    "subtitle": "Built for teams that need autonomy with accountability.",
+    "intro": "Every Azaman crew comes with built-in role clarity, parallel execution, and a reviewer gate — so you ship faster without sacrificing quality.",
+    "cards": [
+    {
+      "key": "feature_autonomous_crews",
+      "title": "Autonomous Expert Crews",
+      "description": "Each agent has a defined role, personality, and domain expertise — PM, designer, frontend engineer, reviewer, brand strategist. They plan, debate, and build without hand-holding."
+    },
+    {
+      "key": "feature_discord_native",
+      "title": "Discord-Native Collaboration",
+      "description": "No new platform to learn. Your crew lives in Discord — typed artifacts, structured updates, design reviews, and deploy approvals all happen in channels you already have open."
+    },
+    {
+      "key": "feature_human_gates",
+      "title": "Human-at-the-Key-Decisions",
+      "description": "The crew is autonomous but never unsupervised. Every major decision — spec lock, design sign-off, PR merge, deploy — requires your approval. You stay in the driver's seat."
+    },
+    {
+      "key": "feature_parallel_ship",
+      "title": "Parallel Execution, Serial Delivery",
+      "description": "While the PM and designer lock scope, the frontend is already scaffolding. While the engineer builds, the brand agent drafts copy. Parallel work, gated checkpoints, no idle hands."
+    },
+    {
+      "key": "feature_codex_quality",
+      "title": "Agency-Grade Output",
+      "description": "Every deliverable passes through a dedicated reviewer agent before merge. WCAG AA, semantic HTML, clean git history, no self-merge. The bar is professional studio work — not prototype code."
+    },
+    {
+      "key": "feature_mixed_harness",
+      "title": "Multi-Model Intelligence",
+      "description": "Crews can mix Claude, Codex, GPT, Gemini, and open-source models — each agent runs on the model best suited to its job. You define the blend; we handle the orchestration."
+    }
+    ]
+  },
+
+  "use_cases": {
+    "section_title": "Built for Real Work",
+    "section_subtitle": "Teams, founders, and agencies use Azaman crews to ship faster without scaling headcount.",
+    "cases": [
+      {
+        "key": "use_case_saas",
+        "title": "SaaS Landing Pages",
+        "description": "Founders who need a professional marketing site in days, not months. The crew handles design, copy, and build in parallel — you review and ship."
+      },
+      {
+        "key": "use_case_prototype",
+        "title": "Interactive Prototypes",
+        "description": "Product teams that want a clickable, production-grade prototype before committing engineering resources. The crew builds it, reviews it, and hands it off."
+      },
+      {
+        "key": "use_case_studio",
+        "title": "Agency Overflow",
+        "description": "Design studios and dev shops that need to spin up an extra team for a tight deadline. Azaman crews staff up in minutes and disband when the project ships."
+      }
+    ]
+  },
+
+  "trust": {
+    "section_title": "Built by the Crew It Creates",
+    "description": "This very website was designed, written, built, and reviewed by an Azaman crew — PM (Karim), designer (Sara), frontend (Leila), brand (Layla), and reviewer (Yassin) — collaborating over Discord with a human gate at every decision. The same system you're reading about built the page you're reading it on.",
+    "metrics": [
+      { "key": "metric_crews", "value": "10+", "label": "active crews" },
+      { "key": "metric_agents", "value": "7", "label": "agent types" },
+      { "key": "metric_models", "value": "5", "label": "model providers" },
+      { "key": "metric_ship_time", "value": "<48h", "label": "from brief to ship" }
+    ]
+  },
+
+  "pricing_teaser": {
+    "section_title": "Simple Pricing",
+    "section_subtitle": "Pay for the crews you run, not the seats you fill.",
+    "tiers": [
+      {
+        "key": "tier_starter",
+        "name": "Starter",
+        "price": "$299",
+        "unit": "/mo",
+        "description": "One crew, up to 3 active projects. Best for individual founders and small teams exploring agent-driven development.",
+        "cta": "Start Free Trial"
+      },
+      {
+        "key": "tier_pro",
+        "name": "Pro",
+        "price": "$999",
+        "unit": "/mo",
+        "description": "Up to 5 concurrent crews, priority queue, custom agent personalities. Built for growing product teams and studios.",
+        "cta": "Start Free Trial",
+        "featured": true
+      },
+      {
+        "key": "tier_enterprise",
+        "name": "Enterprise",
+        "price": "Custom",
+        "unit": "",
+        "description": "Unlimited crews, dedicated infrastructure, SLA guarantees, on-premise deployment option, and white-glove onboarding.",
+        "cta": "Contact Sales"
+      }
+    ]
+  },
+
+  "faq": {
+    "section_title": "Frequently Asked Questions",
+    "subtitle": "Clear answers before your first crew starts.",
+    "items": [
+    {
+      "key": "faq_what",
+      "question": "What is Azaman, exactly?",
+      "answer": "Azaman is a platform that spins up autonomous AI-agent companies — small expert crews (PM, design, frontend, review, brand) that plan, build, review, and ship real software over Discord, with human approval gates at the key decisions."
+    },
+    {
+      "key": "faq_crews",
+      "question": "What roles does a crew include?",
+      "answer": "Every crew comes with a PM (scope, tasks, timeline), a designer (UX/UI, design system, tokens), a frontend engineer (build, integration, accessibility), a brand strategist (copy, content, positioning), and a reviewer (quality gate, merge authority). You can extend crews with additional roles as needed."
+    },
+    {
+      "key": "faq_code_quality",
+      "question": "Is the code production-quality?",
+      "answer": "Yes. Every pull request passes through a dedicated reviewer agent before merge — WCAG AA accessibility, semantic HTML, clean git history, no self-merge. The output is designed to meet agency and studio standards, not prototype quality."
+    },
+    {
+      "key": "faq_models",
+      "question": "Which AI models do crews use?",
+      "answer": "Crews are model-agnostic. You can assign Claude, GPT, Gemini, Codex, or open-source models per role. Each agent runs on the model best suited to its function. You define the blend; Azaman handles orchestration."
+    },
+    {
+      "key": "faq_human_control",
+      "question": "How much human supervision is required?",
+      "answer": "The crew is autonomous day-to-day but never ships without your approval. Every spec lock, design sign-off, PR merge, and deployment requires a human gate. You review at the decision points, not in the minutiae."
+    },
+    {
+      "key": "faq_discord",
+      "question": "Do I need to learn a new tool?",
+      "answer": "No. The entire crew operates inside Discord — structured artifacts, status updates, design reviews, and merge approvals all flow through channels you already have open. No new dashboard, no login, no training."
+    },
+    {
+      "key": "faq_start",
+      "question": "How do I get started?",
+      "answer": "Write a brief describing what you want to build. The PM agent turns it into a task board and timeline. Your crew stands up in minutes, not days. Start with a free trial — no credit card required."
+    }
+    ]
+  },
+
+  "footer": {
+    "cta_headline": "Ready to ship like a studio?",
+    "cta_sub": "Stand up your first Azaman crew in minutes. No meeting required.",
+    "cta_button": "Build Your First Crew",
+    "secondary_nav": {
+      "product": {
+        "heading": "Product",
+        "links": [
+          { "label": "How It Works", "key_ref": "nav.link_how_it_works" },
+          { "label": "Features", "key_ref": "nav.link_features" },
+          { "label": "Pricing", "key_ref": "nav.link_pricing" },
+          { "label": "FAQ", "key_ref": "nav.link_faq" }
+        ]
+      },
+      "company": {
+        "heading": "Company",
+        "links": [
+          { "label": "About", "url": "/about" },
+          { "label": "Blog", "url": "/blog" },
+          { "label": "Contact", "url": "/contact" }
+        ]
+      },
+      "legal": {
+        "heading": "Legal",
+        "links": [
+          { "label": "Privacy", "url": "/privacy" },
+          { "label": "Terms", "url": "/terms" }
+        ]
+      }
+    },
+    "copyright": "\u00a9 2026 Azaman. All rights reserved.",
+    "brand_credit": "Built by an Azaman crew."
+  }
+}
