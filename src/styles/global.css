@@ -2,53 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Inter";
-  src: url("../../node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2") format("woff2");
-  font-display: swap;
-  font-style: normal;
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "Inter";
-  src: url("../../node_modules/@fontsource/inter/files/inter-latin-500-normal.woff2") format("woff2");
-  font-display: swap;
-  font-style: normal;
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: "Inter";
-  src: url("../../node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2") format("woff2");
-  font-display: swap;
-  font-style: normal;
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: "Fraunces Variable";
-  src: url("../../node_modules/@fontsource-variable/fraunces/files/fraunces-latin-standard-normal.woff2") format("woff2-variations");
-  font-display: swap;
-  font-style: normal;
-  font-weight: 100 900;
-}
-
-@font-face {
-  font-family: "Space Mono";
-  src: url("../../node_modules/@fontsource/space-mono/files/space-mono-latin-400-normal.woff2") format("woff2");
-  font-display: swap;
-  font-style: normal;
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "Space Mono";
-  src: url("../../node_modules/@fontsource/space-mono/files/space-mono-latin-700-normal.woff2") format("woff2");
-  font-display: swap;
-  font-style: normal;
-  font-weight: 700;
-}
+/* Self-hosted fonts in public/fonts/. Paths are relative to the BUNDLED stylesheet
+   (_astro/), so they resolve under any base (root or the /azmn/ Pages subpath). */
+@font-face { font-family: "Inter"; src: url("../fonts/inter-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Fraunces Variable"; src: url("../fonts/fraunces-latin-standard-normal.woff2") format("woff2-variations"); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "Space Mono"; src: url("../fonts/space-mono-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Space Mono"; src: url("../fonts/space-mono-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-display: swap; }
 
 :root {
   color-scheme: light;

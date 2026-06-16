@@ -1,78 +1,89 @@
 # Azaman Design System
 
-DECISION | id=DS-2 | owner=Sara | status=locked | date=2026-06-16
+DECISION | id=DS-3 | owner=Sara | status=locked | date=2026-06-16 | brief=wt/pm@1575198
 
-Azaman should feel like the site that built itself: a live, human-gated product artifact assembled by a high-trust AI crew. DS-2 moves the visual language away from generic cobalt SaaS into a more editorial, studio-grade system: quieter technical neutrals, one cranberry signal accent, larger display type, deeper hero staging, asymmetric section rhythm, and motion that clarifies state without becoming decoration.
+DS-3 extends DS-2 for Iteration 3. The brief is "controlled magic": autonomous expert crews produce the site, but the human gate stays visible, auditable, and in control. The system keeps the DS-2 neutral base and cranberry accent, then adds the anti-generic layer Karim locked: display serif headlines, mono crew labels, governed expressive motion, tonal hero mesh depth, and asymmetric editorial section shapes.
 
 ## Direction
 
-- Concept: orchestration made visible. The hero should feel like active work moving through agents, review gates, and a final ship state.
-- Tone: precise, technical, premium, and warm enough to feel human-gated.
-- Avoid: grey placeholder boxes, generic blue gradients, identical card rows, decorative blobs/orbs, and literal flowchart diagrams.
-- Build on master. Elevate the existing copy and section sequence rather than restarting the site.
+- Thesis: describe the outcome, then show the crew assembling, building, reviewing, and shipping it. This site is the proof.
+- Archetype: The Magician tempered by The Architect. It should feel art-directed and technical, never mystical for its own sake.
+- Anti-generic moves: Fraunces display type, Inter body, Space Mono labels, one cranberry accent, crafted generative hero, orchestration scroll moment, manifesto band, and asymmetry.
+- Build rule: extend master@733b825 and DS-2. Do not restart the page or add a second accent.
 
 ## Core Tokens
 
 ### Color
 
-Use one accent family only. Cranberry is the action and orchestration signal; neutrals carry hierarchy, depth, and readability.
+Use one accent family only. Cranberry is the action and orchestration signal; mesh colors are tonal depth for the hero and dark transition surfaces.
 
-| Token | Hex | Use |
-| --- | --- | --- |
-| `ink` | `#101214` | Primary text, dark footer background |
-| `ink-muted` | `#4a5563` | Secondary text |
-| `ink-soft` | `#5f6871` | Captions and metadata |
-| `surface` | `#f5f3ee` | Page background |
-| `surface-raised` | `#ffffff` | Cards, nav, FAQ rows |
-| `surface-muted` | `#e7e9e2` | Alternating bands, sequence rails, quiet panels |
-| `border` | `#d5d8cf` | Default borders |
-| `border-strong` | `#b8beb2` | Dividers on dense UI and hover states |
-| `accent` | `#bc2a64` | Primary actions, active path, focus rings, key highlights |
-| `accent-text` | `#861347` | Small accent text on light surfaces |
-| `accent-soft` | `#fce7ef` | Accent tint backgrounds |
-| `accent-on` | `#ffffff` | Text/icons on accent-filled controls |
-| `success` | `#177245` | Verified or shipped proof points |
-| `warning` | `#8a5a12` | Non-blocking caution states |
+| Token | Hex | Use | AA-approved surface(s) |
+| --- | --- | --- | --- |
+| `ink` | `#101214` | Primary text, dark footer background | Text on `surface-raised` 18.77:1, `surface` 16.93:1, `surface-muted` 15.33:1 |
+| `ink-muted` | `#4a5563` | Secondary text | Text on `surface-raised` 7.58:1, `surface` 6.83:1, `surface-muted` 6.19:1 |
+| `ink-soft` | `#5f6871` | Captions and metadata | Text on `surface-raised` 5.67:1, `surface` 5.11:1, `surface-muted` 4.63:1 |
+| `surface` | `#f5f3ee` | Page background | Approved behind `ink`, `ink-muted`, `ink-soft`, `accent`, `accent-text` |
+| `surface-raised` | `#ffffff` | Cards, nav, FAQ rows | Approved behind `ink`, `ink-muted`, `ink-soft`, `accent`, `accent-text` |
+| `surface-muted` | `#e7e9e2` | Alternating bands, sequence rails, quiet panels | Approved behind `ink`, `ink-muted`, `ink-soft`, `accent` |
+| `border` | `#d5d8cf` | Default borders | Non-text divider on light surfaces |
+| `border-strong` | `#b8beb2` | Dense UI dividers and hover borders | Non-text divider on light surfaces |
+| `accent` | `#bc2a64` | Primary actions, active path, focus rings, gate pills, sequence markers, Pro tier | Text/icon on `accent-on` 5.75:1; text on `surface` 5.18:1, `surface-raised` 5.75:1, `surface-muted` 4.69:1; non-text focus on `ink` 3.27:1 and `mesh-ink` 3.03:1 |
+| `accent-text` | `#861347` | Small accent text on light surfaces | Text on `surface` 8.62:1, `surface-raised` 9.56:1, `accent-soft` 8.11:1 |
+| `accent-soft` | `#fce7ef` | Accent tint backgrounds | Approved behind `ink`, `ink-muted`, `accent-text` |
+| `accent-on` | `#ffffff` | Text/icons on accent-filled controls and dark mesh | Text on `accent` 5.75:1, `mesh-plum` 16.49:1, `mesh-ink` 17.39:1; large text/icons only on `mesh-magenta` 3.96:1 |
+| `mesh-plum` | `#3a0f24` | Hero mesh depth, dark editorial arcs | Approved behind `accent-on` and footer-muted text; do not place cranberry text/rings directly on this stop |
+| `mesh-magenta` | `#e0457b` | Hero mesh highlight only | Tonal highlight; use `ink` for small text if text crosses it (4.74:1), `accent-on` only for large text/icons |
+| `mesh-ink` | `#0d1b2a` | Hero mesh shadow, dark arc depth | Approved behind `accent-on` and footer-muted text; cranberry non-text UI clears 3.03:1 |
+| `success` | `#177245` | Verified or shipped proof points | Use on light surfaces only |
+| `warning` | `#8a5a12` | Non-blocking caution states | Use on light surfaces only |
 
-Accessibility notes:
-- `ink` on `surface-raised` is 18.77:1, on `surface` is 16.93:1, and on `surface-muted` is 15.33:1.
-- `ink-muted` on `surface-raised` is 7.58:1, on `surface` is 6.83:1, and on `surface-muted` is 6.19:1.
-- `ink-soft` on `surface-raised` is 5.67:1, on `surface` is 5.11:1, and on `surface-muted` is 4.63:1.
-- `accent` on `accent-on` is 5.75:1.
-- `accent-text` on `surface` is 8.62:1.
-- `accent` on `surface` is 5.18:1, so it is safe for small text, links, and focus states.
-- `accent` on `surface-raised` is 5.75:1.
-- `accent` on `surface-muted` is 4.69:1.
-- `accent` on `ink` is 3.27:1, so the same 2px focus ring clears the dark footer background for UI indication.
-- Body text should use `ink` or `ink-muted` on `surface` or `surface-raised`.
-- Do not introduce a second brand accent for section variety. Use scale, spacing, surface contrast, and composition instead.
+Rules:
+- No SaaS blue and no second brand accent. Mesh colors are not CTA colors.
+- Any text over the generative hero should land on `mesh-plum` or `mesh-ink` zones with `accent-on` or footer-muted. Avoid body text directly over `mesh-magenta`.
+- Cranberry on dark is for strokes, glows, markers, and non-text state. Do not use it as small text on dark plum.
 
 ### Type
 
-Font stack: `Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`.
+Three roles are locked:
 
-| Token | Size | Line height | Weight | Use |
-| --- | ---: | ---: | ---: | --- |
-| `eyebrow` | 12px | 16px | 700 | Section labels, uppercase sparingly |
-| `caption` | 12px | 18px | 500 | Metadata, helper text |
-| `body-sm` | 14px | 22px | 500 | Dense card text, nav |
-| `body` | 16px | 26px | 500 | Default paragraph text |
-| `body-lg` | 18px | 30px | 500 | Hero support copy, section intros |
-| `h4` | 20px | 28px | 700 | Card titles |
-| `h3` | 26px | 34px | 760 | Subsection headings, feature sequence titles |
-| `h2` | 44px | 50px | 790 | Section headings |
-| `h1` | 64px | 68px | 820 | Desktop hero |
-| `display` | 88px | 90px | 840 | Wide hero emphasis only |
+| Role | Face | File(s) | Weight range | Use |
+| --- | --- | --- | --- | --- |
+| Display | Fraunces Latin standard variable normal | `public/fonts/fraunces-latin-standard-normal.woff2` | Use 620-840 only | Hero, display, h1, h2, h3, manifesto pull quote |
+| Body/UI | Inter variable normal | `public/fonts/inter-var.woff2` | Use 500-760 | Body, nav, buttons, captions, UI labels that need speed |
+| Mono | Space Mono Latin normal | `public/fonts/space-mono-latin-400-normal.woff2`, `public/fonts/space-mono-latin-700-normal.woff2` | 400 and 700 | Crew names, terminal labels, eyebrows, sequence markers, commit/proof chips |
+
+Font-loading rules:
+- All `@font-face` URLs use relative `url("../fonts/...")` from `src/styles/global.css`; never absolute `/fonts/...`, because Pages runs under `/azmn/`.
+- Use normal style only. No italics in DS-3.
+- Fraunces is Latin-only, normal-only, and axis-capped to the standard variable file. It preserves the display personality while dropping the heavier full-axis file.
+- Space Mono is Latin-only, 400/700 normal. It supplies character without adding JetBrains-sized breadth.
+- Font display is `swap` for all faces.
+
+Type scale:
+
+| Token | Size | Line height | Weight | Family | Use |
+| --- | ---: | ---: | ---: | --- | --- |
+| `eyebrow` | 12px | 16px | 700 | Space Mono | Section labels, crew/terminal tags, sequence markers |
+| `caption` | 12px | 18px | 500 | Inter | Metadata, helper text |
+| `body-sm` | 14px | 22px | 500 | Inter | Dense card text, nav |
+| `body` | 16px | 26px | 500 | Inter | Default paragraph text |
+| `body-lg` | 18px | 30px | 500 | Inter | Hero support copy, section intros |
+| `h4` | 20px | 28px | 700 | Inter or Fraunces by context | Card titles; use Inter in dense UI, Fraunces in editorial callouts |
+| `h3` | 26px | 34px | 760 | Fraunces | Subsection headings, feature sequence titles |
+| `h2` | 44px | 50px | 790 | Fraunces | Section headings |
+| `h1` | 64px | 68px | 820 | Fraunces | Desktop hero |
+| `display` | 88px | 90px | 840 | Fraunces | Wide hero emphasis only |
 
 Responsive type rules:
 - Mobile hero starts at `h2` scale or a clamped implementation that bottoms at 44px.
-- Desktop hero uses `h1`; wide desktop may use `display` if the line length stays controlled.
-- Letter spacing stays `0`; use weight, line breaks, and layout for drama.
-- Keep support copy at `body-lg` max. Do not make dense panel text oversized.
+- Desktop hero uses `h1`; wide desktop may use `display` if line length stays controlled.
+- Letter spacing stays `0`.
+- Support copy stays Inter at `body-lg` max.
+- Display serif AA approval comes from the foreground color, not the face: use `ink` on light surfaces or `accent-on` on dark mesh surfaces.
 
 ### Spacing
 
-Base grid is 4px. DS-2 increases breathing room and gives the page a more deliberate rhythm.
+DS-2 spacing remains the base.
 
 | Token | Value | Use |
 | --- | ---: | --- |
@@ -84,14 +95,45 @@ Base grid is 4px. DS-2 increases breathing room and gives the page a more delibe
 | `section` | 80px | Mobile section padding |
 | `section-lg` | 128px | Desktop section padding |
 | `section-xl` | 160px | Major narrative breaks |
+| `manifesto` | 96px | Editorial manifesto band vertical padding |
 | `hero-gap` | 144px | Desktop hero/visual gap when layout permits |
 | `rail` | 88px | Feature sequence rail spacing |
 
-Layout rules:
-- Make the first viewport unmistakably Azaman: headline, proof artifact, and one primary CTA.
-- Keep a hint of the next section visible on common desktop and mobile viewports.
-- Use fewer but larger section ideas. Avoid repeating a three-card grid back to back.
-- Cards stay at `8px` radius. Hero/product stages may use `8px` or nested squared panels; avoid pill-shaped cards.
+### Motion
+
+Motion character: expressive but governed. Expressive means richer easing, deliberate stagger, and one or two signature moments. It does not mean everything moves.
+
+| Token | Value | Use |
+| --- | --- | --- |
+| `motion-control` | 160ms | Buttons, nav, focus affordances |
+| `motion-panel` | 220ms | Cards, chips, hero-stage panels |
+| `motion-reveal` | 420ms | Standard section reveals; opacity + max 12px translate |
+| `motion-signature` | 900ms | Hero masked/split reveal and orchestration scroll moment |
+| `ease-expressive` | `cubic-bezier(0.2, 0.8, 0.2, 1)` | Default UI and reveal easing |
+| `ease-signature` | `cubic-bezier(0.16, 1, 0.3, 1)` | Hero reveal and signature entry |
+| `ease-gate` | `cubic-bezier(0.65, 0, 0.35, 1)` | Gate lock/unlock, route draw, review checkpoint |
+| `stagger-step` | 70ms | GSAP/SplitText child stagger; max 4 visible steps before it feels slow |
+
+Implementation contract for Leila:
+- GSAP/ScrollTrigger/SplitText consume the same values. Avoid ad hoc easings.
+- Signature moment #1 is the orchestration sequence: brief -> crew assembles -> you gate -> ship.
+- Standard reveals should vary by intent and layout, not become a uniform fade applied everywhere.
+- `prefers-reduced-motion: reduce` must render the complete page statically: no hidden reveal state, no motion-only content, no layout shift.
+
+### Section Shapes
+
+| Token/Class | Use |
+| --- | --- |
+| `hero-mesh` / `bg-hero-mesh` | Full-bleed dark generative hero background with plum, magenta, and ink depth |
+| `section-arc-dark` / `bg-soft-arc-dark` | Asymmetric dark transition into hero or orchestration zones |
+| `section-arc-light` / `bg-soft-arc-light` | Asymmetric light return from dark to page surface |
+| `manifesto-band` | Editorial pull-quote band with generous negative space |
+| `panel` | DS-2 card/panel shell retained for bento and proof modules |
+
+Rules:
+- Arcs should feel like section composition, not decorative blobs. Use them as band transitions.
+- Bento remains, but rhythm can stagger card heights and offsets.
+- Manifesto band should use Fraunces and off-center composition.
 
 ## Components
 
@@ -99,102 +141,72 @@ Layout rules:
 
 - Height: 72px desktop, 64px mobile.
 - Surface: `surface-raised/90` with blur and a `border` bottom rule.
-- Brand mark may use `accent` fill with `accent-on`, but the nav should remain quiet.
-- Links use `body-sm`, `ink-muted`, hover to `ink`.
-- Keep one visible CTA. Do not add multiple competing nav actions.
+- Links use Inter `body-sm`, `ink-muted`, hover to `ink`.
+- Keep one visible CTA using cranberry.
 
 ### Buttons
 
 Primary:
 - Background `accent`, text `accent-on`, border `accent`.
-- Hover with slight lift and shadow, not a new hue.
+- Hover with slight lift and shadow; no hue shift.
 - Focus: 2px `accent` outline, 2px offset.
 
 Secondary:
 - Background `surface-raised`, text `ink`, border `border`.
 - Hover: `surface-muted` and `border-strong`.
 
-Sizes:
-- Small: 36px height, 14px text, 14px horizontal padding.
-- Default: 44px height, 16px text, 20px horizontal padding.
-- Large: 52px height, 16px text, 24px horizontal padding.
+Motion:
+- Control transitions use `motion-control` + `ease-expressive`.
 
 ### Hero Stage
 
-The hero visual is the main DS-2 upgrade. It should be a composed product artifact, not a placeholder.
+Iteration 3 requires a crafted generative hero, not the DS-2 product-stage placeholder.
 
-Recommended treatment:
-- Layered orchestration workbench with a dark or raised base, agent lanes, active task cards, human gate checkpoint, and ship status.
-- Use `accent` as the active path only: one run line, one active gate, one primary status chip.
-- Add depth through overlapping panels, fine grid lines, shadows, and scale, not blur blobs.
-- Mobile version should compress to a strong artifact preview, not disappear into three tiny pills.
+Required treatment:
+- Full-bleed dark `hero-mesh` surface.
+- Layered crew-room artifact with depth, not a flat screenshot.
+- Split-text or masked hero reveal using `motion-signature` and `ease-signature`.
+- One focal CTA.
+- Active path/gate uses cranberry sparingly.
 
-Constraints:
-- Must remain legible at 375px.
-- Must avoid decorative orbs/blobs and generic gradients.
-- Must show behavior: brief -> crew work -> human gate -> ship.
+Accessibility:
+- Text over dark zones uses `accent-on` or footer-muted.
+- If text crosses `mesh-magenta`, use large text/icons only or move the text onto a plum/ink panel.
 
-### Feature Sequence
+### Orchestration Signature Moment
 
-At least one feature section should become a sequence rather than another equal-card grid.
+- Visualizes brief -> crew -> gate -> ship.
+- Uses Space Mono for sequence labels and Fraunces for the narrative heading.
+- Route draw/gate lock uses `ease-gate`; panels use `motion-panel`.
+- Reduced-motion fallback shows the complete sequence as a static proof ledger.
 
-Recommended pattern:
-- One large narrative panel on the left or top.
-- A vertical or diagonal run rail with 3 to 4 steps.
-- Smaller proof cards offset around it.
-- Use `accent-soft` for active states and `surface-muted` for inactive states.
+### Manifesto Band
+
+- One editorial band, not a card.
+- Fraunces pull quote, Inter support copy, Space Mono proof tag.
+- Off-center composition with negative space.
 
 ### Cards And Panels
 
 - Background `surface-raised`.
 - Border `1px solid border`.
 - Radius `8px`.
-- Padding `24px` mobile, `32px` desktop.
+- Padding 24px mobile, 32px desktop.
 - Hover lift only for interactive cards.
-- Avoid more than one consecutive section of identical cards.
-
-### Trust And Pricing
-
-- Trust can become a proof ledger: merged commit, reviewer gate, design-system lock, copy deck, visual sign-off.
-- Pricing should be a focused conversion panel with one featured path, not a dense table.
-- Use `success` only for verified/shipped signals.
-
-### FAQ And Footer
-
-- Keep native `details`/`summary` for FAQ.
-- Summary focus state must be visible.
-- Footer background remains `ink`; muted text uses `#d8d2c7`.
-- Footer links should point only to real anchors until real pages exist.
-
-## Section Rhythm
-
-1. Sticky nav.
-2. Hero: oversized editorial headline plus a layered orchestration stage. One focal CTA.
-3. How it works: compact sequence, not three detached cards if space allows.
-4. Features: break the grid. Use one feature as a run sequence with asymmetric support cards.
-5. Recipes/use cases: denser comparison or split layout.
-6. Trust: proof ledger / shipped-by-this-crew strip.
-7. Pricing: single conversion band or one featured tier with restrained secondary tiers.
-8. FAQ: compact disclosures.
-9. Footer: dark close with CTA and live provenance.
-
-## Motion
-
-- Controls: 160ms.
-- Cards/stage panels: 220ms.
-- Section reveals: 420ms max, opacity plus 12px translate only.
-- Easing: `cubic-bezier(0.2, 0.8, 0.2, 1)`.
-- Motion should clarify hierarchy, active state, or scroll entry.
-- Respect `prefers-reduced-motion`; no always-on background animation.
 
 ## Tailwind Mapping
 
-The companion `tailwind.config.mjs` exports DS-2 tokens under:
-- `colors.ink`, `colors.surface`, `colors.border`, `colors.accent`, `colors.success`, `colors.warning`.
-- `fontFamily.sans`.
-- `fontSize` entries matching the type table.
-- `spacing.section`, `spacing.section-tight`, `spacing.section-lg`, `spacing.section-xl`, `spacing.rail`, `spacing.gutter`, `spacing.container`.
-- `borderRadius.card` and `borderRadius.control`.
-- `boxShadow.nav`, `boxShadow.card`, `boxShadow.lift`.
+The companion `tailwind.config.mjs` exposes:
 
-Implementation should use named tokens rather than raw hex values except for rare media-specific details.
+- `colors.ink`, `colors.surface`, `colors.border`, `colors.accent`, `colors.mesh`, `colors.success`, `colors.warning`.
+- `fontFamily.display`, `fontFamily.sans`, `fontFamily.mono`.
+- `fontSize` entries matching the type scale.
+- `spacing.section`, `spacing.section-tight`, `spacing.section-lg`, `spacing.section-xl`, `spacing.manifesto`, `spacing.rail`, `spacing.gutter`, `spacing.container`.
+- `borderRadius.card`, `borderRadius.control`, `borderRadius.arc`.
+- `boxShadow.nav`, `boxShadow.card`, `boxShadow.lift`, `boxShadow.mesh`.
+- `transitionDuration.control`, `panel`, `reveal`, `signature`.
+- `transitionTimingFunction.expressive`, `signature`, `gate`.
+- `transitionDelay.stagger-1` through `stagger-4`.
+- `backgroundImage.hero-mesh`, `soft-arc-light`, `soft-arc-dark`.
+
+Implementation should use named tokens rather than raw hex values except inside the generative hero shader/SVG/canvas where the mesh stop values are the token itself.
