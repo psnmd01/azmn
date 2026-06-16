@@ -521,10 +521,18 @@ const assetUrl = (path: string) => `${basePath}${path}`;
           window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
         };
 
-        if ('requestIdleCallback' in window) {
-          window.requestIdleCallback(startMotion, { timeout: 900 });
+        const runMotion = () => {
+          if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(startMotion, { timeout: 300 });
+          } else {
+            window.setTimeout(startMotion, 80);
+          }
+        };
+
+        if (document.readyState === 'complete') {
+          runMotion();
         } else {
-          window.setTimeout(startMotion, 180);
+          window.addEventListener('load', runMotion, { once: true });
         }
       }
     </script>
