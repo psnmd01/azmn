@@ -6,15 +6,15 @@ const navItems = [
   { href: '#how-it-works', label: copy.nav.link_how_it_works, key: 'nav.link_how_it_works' },
   { href: '#features', label: copy.nav.link_features, key: 'nav.link_features' },
   { href: '#pricing', label: copy.nav.link_pricing, key: 'nav.link_pricing' },
-  { href: '#faq', label: copy.nav.link_faq, key: 'nav.link_faq' }
+  { href: '#faq', label: copy.nav.link_faq, key: 'nav.link_faq' },
 ];
 
 const footerGroups = [
   {
     key: 'product',
     heading: copy.footer.secondary_nav.product.heading,
-    links: navItems.map((item) => ({ href: item.href, label: item.label, key: item.key }))
-  }
+    links: navItems.map((item) => ({ href: item.href, label: item.label, key: item.key })),
+  },
 ];
 
 const steps = [
@@ -22,21 +22,23 @@ const steps = [
     title: copy.how_it_works.step_1_title,
     body: copy.how_it_works.step_1_desc,
     titleKey: 'how_it_works.step_1_title',
-    bodyKey: 'how_it_works.step_1_desc'
+    bodyKey: 'how_it_works.step_1_desc',
   },
   {
     title: copy.how_it_works.step_2_title,
     body: copy.how_it_works.step_2_desc,
     titleKey: 'how_it_works.step_2_title',
-    bodyKey: 'how_it_works.step_2_desc'
+    bodyKey: 'how_it_works.step_2_desc',
   },
   {
     title: copy.how_it_works.step_3_title,
     body: copy.how_it_works.step_3_desc,
     titleKey: 'how_it_works.step_3_title',
-    bodyKey: 'how_it_works.step_3_desc'
-  }
+    bodyKey: 'how_it_works.step_3_desc',
+  },
 ];
+
+const featureCardSpans = ['lg:col-span-4', 'lg:col-span-3', 'lg:col-span-3', 'lg:col-span-5', 'lg:col-span-5'];
 ---
 
 <!doctype html>
@@ -48,6 +50,7 @@ const steps = [
       name="description"
       content="Azaman spins up autonomous AI-agent companies that plan, build, review, and ship real software over Discord with human approval gates."
     />
+    <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>Azaman | Autonomous AI-agent companies</title>
   </head>
@@ -78,102 +81,138 @@ const steps = [
     </header>
 
     <main id="main">
-      <section class="border-b border-border bg-surface pb-6 pt-8 sm:py-16 lg:py-20">
-        <div class="container-page grid gap-5 sm:gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
-          <div>
+      <section class="relative overflow-hidden border-b border-border bg-surface pb-10 pt-8 sm:pb-14 sm:pt-14 lg:pb-16 lg:pt-16">
+        <div class="container-page grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center xl:gap-hero-gap">
+          <div data-reveal>
             <p class="eyebrow" data-i18n="hero.badge">{copy.hero.badge}</p>
-            <h1 class="mt-4 max-w-3xl text-h2 text-ink sm:mt-5 sm:text-h1" data-i18n="hero.headline">
+            <h1 class="mt-4 max-w-3xl text-h2 text-ink sm:mt-5 sm:text-h1 xl:text-display" data-i18n="hero.headline">
               {copy.hero.headline}
             </h1>
-            <p class="mt-5 max-w-2xl text-body text-ink-muted sm:mt-6 sm:text-body-lg" data-i18n="hero.subheadline">
-              {copy.hero.subheadline}
+            <p class="mt-5 max-w-2xl text-body text-ink-muted sm:mt-6 sm:text-body-lg" data-i18n="hero.sub">
+              {copy.hero.sub}
             </p>
-            <div class="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row">
-              <a href="#pricing" class="button button-primary" data-i18n="hero.cta_primary">{copy.hero.cta_primary}</a>
-              <a href="#how-it-works" class="button button-secondary" data-i18n="hero.cta_secondary">{copy.hero.cta_secondary}</a>
+            <div class="mt-7 flex flex-col gap-4 sm:mt-9 sm:flex-row sm:items-center">
+              <a href="#pricing" class="button button-primary min-h-[52px] px-6" data-i18n="hero.cta_primary">{copy.hero.cta_primary}</a>
+              <a
+                href="#how-it-works"
+                class="inline-flex min-h-11 items-center text-body-sm font-bold text-accent-text underline-offset-4 transition hover:text-accent hover:underline"
+                data-i18n="hero.cta_secondary"
+                >{copy.hero.cta_secondary}</a
+              >
             </div>
           </div>
 
-          <div class="hero-visual grid h-16 grid-cols-3 items-center gap-2 overflow-hidden rounded-card border border-border bg-surface-raised p-2 shadow-card sm:hidden" role="img" aria-label={copy.hero.visual_alt}>
-            {['Brief', 'Crew', 'Gate'].map((label) => (
-              <span class="grid h-10 place-items-center rounded-control bg-accent-soft px-2 text-caption text-accent-text">
-                {label}
-              </span>
-            ))}
-          </div>
-
-          <div class="hero-visual hidden rounded-card border border-border bg-surface-raised p-5 shadow-lift sm:block" role="img" aria-label={copy.hero.visual_alt}>
-            <div class="flex items-center justify-between border-b border-border pb-4">
-              <div>
-                <p class="text-caption text-ink-muted">Azaman crew</p>
-                <p class="mt-1 text-h4 text-ink">Landing page sprint</p>
+          <aside class="orchestration-stage rounded-card border border-border bg-ink p-3 text-surface shadow-lift sm:p-5" aria-label={copy.hero.visual_alt} data-reveal>
+            <div class="rounded-card border border-white/10 bg-white/[0.04] p-3 sm:p-4">
+              <div class="flex items-start justify-between gap-4 border-b border-white/10 pb-3">
+                <div>
+                  <p class="text-caption text-[#d8d2c7]" data-i18n="hero.stage_title">{copy.hero.stage_title}</p>
+                  <p class="mt-1 text-h4 text-white" data-i18n="hero.headline">{copy.hero.headline}</p>
+                </div>
+                <span class="rounded-control border border-accent bg-accent px-3 py-2 text-caption text-accent-on" data-i18n="hero.stage_status">
+                  {copy.hero.stage_status}
+                </span>
               </div>
-              <span class="rounded-control bg-accent-soft px-3 py-2 text-caption text-accent-text">Gate active</span>
-            </div>
-            <div class="mt-5 grid grid-cols-3 gap-2 sm:gap-3">
-              {['PM', 'Design', 'Frontend'].map((role, index) => (
-                <div class="rounded-card border border-border bg-surface-raised p-4 transition duration-200 ease-expressive hover:-translate-y-px hover:border-border-strong">
-                  <p class="text-caption text-ink-muted">Agent {index + 1}</p>
-                  <p class="mt-2 text-body-sm font-bold text-ink sm:text-body">{role}</p>
-                  <div class="mt-4 h-2 rounded-control bg-surface-muted">
-                    <div class="h-2 rounded-control bg-accent" style={`width: ${index === 0 ? '92' : index === 1 ? '74' : '64'}%`}></div>
+
+              <div class="hero-visual mt-4 grid gap-3 rounded-card bg-white p-3 text-ink sm:p-4 lg:grid-cols-[0.72fr_1fr_0.78fr]">
+                <div class="panel p-4 shadow-none">
+                  <p class="text-caption text-ink-muted" data-i18n="hero.stage_brief">{copy.hero.stage_brief}</p>
+                  <p class="mt-2 text-h4 text-ink" data-i18n="hero.stage_brief_detail">{copy.hero.stage_brief_detail}</p>
+                  <div class="mt-5 h-2 rounded-control bg-surface-muted">
+                    <div class="h-2 w-4/5 rounded-control bg-accent"></div>
                   </div>
                 </div>
-              ))}
+
+                <div class="relative rounded-card border border-border bg-surface p-4">
+                  <div class="absolute left-0 right-0 top-1/2 hidden h-px -translate-y-1/2 bg-accent/40 lg:block"></div>
+                  <p class="relative text-caption text-ink-muted" data-i18n="hero.stage_agents">{copy.hero.stage_agents}</p>
+                  <ul class="relative mt-3 grid gap-2 sm:grid-cols-5 lg:grid-cols-1 xl:grid-cols-5">
+                    {
+                      copy.hero.stage_agent_lanes.map((lane, index) => (
+                        <li class="rounded-card border border-border bg-surface-raised p-3 shadow-card">
+                          <p class="text-caption text-ink-muted">{String(index + 1).padStart(2, '0')}</p>
+                          <p class="mt-1 text-body-sm font-bold text-ink" data-i18n={`hero.stage_agent_lanes.${index}`}>{lane}</p>
+                        </li>
+                      ))
+                    }
+                  </ul>
+                </div>
+
+                <div class="grid gap-3">
+                  <div class="rounded-card border border-accent bg-accent-soft p-4">
+                    <p class="text-caption text-accent-text" data-i18n="hero.stage_gate">{copy.hero.stage_gate}</p>
+                    <p class="mt-2 text-h4 text-ink" data-i18n="features.cards.3.title">{copy.features.cards[3].title}</p>
+                  </div>
+                  <div class="rounded-card border border-border-strong bg-ink p-4 text-white">
+                    <p class="text-caption text-[#d8d2c7]" data-i18n="hero.stage_ship">{copy.hero.stage_ship}</p>
+                    <p class="mt-2 text-h4" data-i18n="hero.stage_ship_detail">{copy.hero.stage_ship_detail}</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="mt-4 hidden gap-3 sm:grid sm:grid-cols-[1fr_auto_1fr_auto_1fr] sm:items-center">
-              <div class="rounded-card border border-border bg-surface p-4">
-                <p class="text-caption text-ink-muted">Brief</p>
-                <p class="mt-2 text-body-sm text-ink">Scope and task board locked</p>
-              </div>
-              <div class="hidden h-px w-8 bg-accent sm:block"></div>
-              <div class="rounded-card border border-border bg-surface p-4">
-                <p class="text-caption text-ink-muted">Crew builds</p>
-                <p class="mt-2 text-body-sm text-ink">Copy, tokens, implementation</p>
-              </div>
-              <div class="hidden h-px w-8 bg-accent sm:block"></div>
-              <div class="rounded-card border border-accent bg-accent-soft p-4">
-                <p class="text-caption text-accent-text">Human gate</p>
-                <p class="mt-2 text-body-sm text-ink">Reviewer approves merge</p>
-              </div>
-            </div>
-          </div>
+          </aside>
         </div>
       </section>
 
       <section id="how-it-works" class="border-b border-border bg-surface-raised py-section lg:py-section-lg">
-        <div class="container-page">
-          <p class="eyebrow" data-i18n="how_it_works.section_title">{copy.how_it_works.section_title}</p>
-          <h2 class="section-heading" data-i18n="how_it_works.section_subtitle">{copy.how_it_works.section_subtitle}</h2>
-          <div class="mt-12 grid gap-4 md:grid-cols-3">
-            {
-              steps.map((step, index) => (
-                <article class="panel p-6 transition duration-200 ease-expressive hover:-translate-y-0.5 hover:border-border-strong lg:p-8">
-                  <div class="grid size-10 place-items-center rounded-control bg-accent-soft text-body-sm font-bold text-accent-text">
-                    {String(index + 1).padStart(2, '0')}
-                  </div>
-                  <h3 class="mt-6 text-h4 text-ink" data-i18n={step.titleKey}>{step.title}</h3>
-                  <p class="mt-3 text-body-sm text-ink-muted" data-i18n={step.bodyKey}>{step.body}</p>
-                </article>
-              ))
-            }
+        <div class="container-page grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+          <div data-reveal>
+            <p class="eyebrow" data-i18n="how_it_works.section_title">{copy.how_it_works.section_title}</p>
+            <h2 class="section-heading" data-i18n="how_it_works.section_subtitle">{copy.how_it_works.section_subtitle}</h2>
+            <p class="section-copy" data-i18n="how_it_works.intro">{copy.how_it_works.intro}</p>
+          </div>
+          <div class="relative" data-reveal>
+            <span class="absolute bottom-8 left-5 top-8 hidden w-px bg-border lg:block" aria-hidden="true"></span>
+            <ol class="relative grid gap-4 lg:gap-5" aria-label={copy.how_it_works.section_title}>
+              {
+                steps.map((step, index) => (
+                  <li class={`panel relative p-6 lg:p-8 ${index === 1 ? 'lg:ml-16' : index === 2 ? 'lg:ml-32' : ''}`}>
+                    <div class="flex items-start gap-4">
+                      <span class="grid size-10 shrink-0 place-items-center rounded-control bg-accent text-body-sm font-bold text-accent-on">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                      <div>
+                        <h3 class="text-h4 text-ink" data-i18n={step.titleKey}>{step.title}</h3>
+                        <p class="mt-3 text-body-sm text-ink-muted" data-i18n={step.bodyKey}>{step.body}</p>
+                      </div>
+                    </div>
+                  </li>
+                ))
+              }
+            </ol>
           </div>
         </div>
       </section>
 
-      <section id="features" class="bg-surface py-section lg:py-section-lg">
+      <section id="features" class="bg-surface py-section lg:py-section-xl">
         <div class="container-page">
-          <div class="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+          <div class="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-end" data-reveal>
             <div>
               <p class="eyebrow" data-i18n="features.section_title">{copy.features.section_title}</p>
               <h2 class="section-heading" data-i18n="features.subtitle">{copy.features.subtitle}</h2>
             </div>
             <p class="section-copy" data-i18n="features.intro">{copy.features.intro}</p>
           </div>
-          <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+
+          <div class="mt-12 grid gap-4 lg:grid-cols-12 lg:auto-rows-fr" data-reveal>
+            <article class="panel bg-ink p-6 text-white lg:col-span-5 lg:row-span-2 lg:p-8">
+              <p class="text-caption text-[#d8d2c7]" data-i18n="features.section_title">{copy.features.section_title}</p>
+              <h3 class="mt-4 text-h2 text-white" data-i18n="features.hero.title">{copy.features.hero.title}</h3>
+              <p class="mt-5 text-body text-[#d8d2c7]" data-i18n="features.hero.description">{copy.features.hero.description}</p>
+              <ol class="mt-8 grid gap-3">
+                {
+                  copy.features.hero.sequence.map((item, index) => (
+                    <li class="grid grid-cols-[auto_1fr] gap-3 rounded-card border border-white/10 bg-white/[0.04] p-3">
+                      <span class="grid size-8 place-items-center rounded-control bg-accent text-caption text-accent-on">{index + 1}</span>
+                      <span class="text-body-sm text-white" data-i18n={`features.hero.sequence.${index}`}>{item}</span>
+                    </li>
+                  ))
+                }
+              </ol>
+            </article>
             {
               copy.features.cards.map((item, index) => (
-                <article class="panel p-6 transition duration-200 ease-expressive hover:-translate-y-0.5 hover:border-border-strong lg:p-8">
+                <article class={`panel p-6 transition duration-200 ease-expressive hover:-translate-y-0.5 hover:border-border-strong lg:p-7 ${featureCardSpans[index]}`}>
                   <p class="text-caption text-accent-text">{String(index + 1).padStart(2, '0')}</p>
                   <h3 class="mt-4 text-h4 text-ink" data-i18n={`features.cards.${index}.title`}>{item.title}</h3>
                   <p class="mt-3 text-body-sm text-ink-muted" data-i18n={`features.cards.${index}.description`}>{item.description}</p>
@@ -185,17 +224,19 @@ const steps = [
       </section>
 
       <section id="use-cases" class="border-y border-border bg-surface-muted py-section lg:py-section-lg">
-        <div class="container-page grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
-          <div>
-            <p class="eyebrow">Use Cases</p>
+        <div class="container-page grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+          <div data-reveal>
+            <p class="eyebrow" data-i18n="use_cases.eyebrow">{copy.use_cases.eyebrow}</p>
             <h2 class="section-heading" data-i18n="use_cases.section_title">{copy.use_cases.section_title}</h2>
             <p class="section-copy" data-i18n="use_cases.section_subtitle">{copy.use_cases.section_subtitle}</p>
           </div>
-          <div class="grid gap-4">
+          <div class="grid gap-4" data-reveal>
             {
               copy.use_cases.cases.map((item, index) => (
-                <article class="panel p-6 lg:p-8">
-                  <p class="text-caption text-ink-muted">Recipe {index + 1}</p>
+                <article class={`panel border-l-4 border-l-accent p-6 lg:p-8 ${index === 1 ? 'lg:ml-10' : index === 2 ? 'lg:ml-20' : ''}`}>
+                  <p class="text-caption text-ink-muted">
+                    <span data-i18n="use_cases.case_label">{copy.use_cases.case_label}</span> {index + 1}
+                  </p>
                   <h3 class="mt-2 text-h3 text-ink" data-i18n={`use_cases.cases.${index}.title`}>{item.title}</h3>
                   <p class="mt-3 text-body text-ink-muted" data-i18n={`use_cases.cases.${index}.description`}>{item.description}</p>
                 </article>
@@ -205,15 +246,25 @@ const steps = [
         </div>
       </section>
 
-      <section class="bg-surface-raised py-section">
-        <div class="container-page">
-          <div class="grid gap-8 md:grid-cols-[1fr_1.1fr] md:items-center">
-            <div>
-              <p class="eyebrow">Trust</p>
-              <h2 class="section-heading" data-i18n="trust.section_title">{copy.trust.section_title}</h2>
-              <p class="mt-4 text-body-lg text-ink-muted" data-i18n="trust.description">{copy.trust.description}</p>
-            </div>
-            <ul class="grid gap-3 sm:grid-cols-2" aria-label="Azaman trust metrics">
+      <section class="bg-surface-raised py-section lg:py-section-lg">
+        <div class="container-page grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+          <div data-reveal>
+            <p class="eyebrow" data-i18n="trust.eyebrow">{copy.trust.eyebrow}</p>
+            <h2 class="section-heading" data-i18n="trust.section_title">{copy.trust.section_title}</h2>
+            <p class="mt-4 text-body-lg text-ink-muted" data-i18n="trust.description">{copy.trust.description}</p>
+          </div>
+          <div class="grid gap-4" data-reveal>
+            <ol class="panel grid gap-0 overflow-hidden p-0" aria-label={copy.trust.section_title}>
+              {
+                copy.trust.proof_ledger.map((item, index) => (
+                  <li class="grid gap-1 border-b border-border p-5 last:border-b-0 sm:grid-cols-[0.8fr_1fr] sm:items-center">
+                    <p class="text-caption text-accent-text" data-i18n={`trust.proof_ledger.${index}.label`}>{item.label}</p>
+                    <p class="text-body-sm font-bold text-ink" data-i18n={`trust.proof_ledger.${index}.value`}>{item.value}</p>
+                  </li>
+                ))
+              }
+            </ol>
+            <ul class="grid gap-3 sm:grid-cols-4" aria-label="Azaman trust metrics">
               {
                 copy.trust.metrics.map((metric, index) => (
                   <li class="rounded-card border border-border bg-surface p-5">
@@ -229,14 +280,14 @@ const steps = [
 
       <section id="pricing" class="border-y border-border bg-surface py-section lg:py-section-lg">
         <div class="container-page">
-          <div class="max-w-3xl">
-            <p class="eyebrow" data-i18n="pricing_teaser.section_title">{copy.pricing_teaser.section_title}</p>
+          <div class="max-w-3xl" data-reveal>
+            <p class="eyebrow" data-i18n="pricing_teaser.eyebrow">{copy.pricing_teaser.eyebrow}</p>
             <h2 class="section-heading" data-i18n="pricing_teaser.section_subtitle">{copy.pricing_teaser.section_subtitle}</h2>
           </div>
-          <div class="mt-12 grid gap-4 lg:grid-cols-3">
+          <div class="mt-12 grid gap-4 lg:grid-cols-[0.85fr_1.15fr_0.85fr] lg:items-stretch" data-reveal>
             {
               copy.pricing_teaser.tiers.map((tier, index) => (
-                <article class={`panel p-6 lg:p-8 ${tier.featured ? 'border-accent bg-accent-soft' : ''}`}>
+                <article class={`panel p-6 lg:p-8 ${tier.featured ? 'border-accent bg-accent-soft shadow-lift lg:-mt-6 lg:mb-6' : ''}`}>
                   <p class="text-caption text-ink-muted" data-i18n={`pricing_teaser.tiers.${index}.name`}>{tier.name}</p>
                   <div class="mt-3 flex items-end gap-1">
                     <p class="text-h2 text-ink" data-i18n={`pricing_teaser.tiers.${index}.price`}>{tier.price}</p>
@@ -255,9 +306,11 @@ const steps = [
 
       <section id="faq" class="bg-surface-raised py-section lg:py-section-lg">
         <div class="container-page">
-          <p class="eyebrow" data-i18n="faq.section_title">{copy.faq.section_title}</p>
-          <h2 class="section-heading" data-i18n="faq.subtitle">{copy.faq.subtitle}</h2>
-          <div class="mt-12 grid gap-4 lg:grid-cols-2">
+          <div data-reveal>
+            <p class="eyebrow" data-i18n="faq.section_title">{copy.faq.section_title}</p>
+            <h2 class="section-heading" data-i18n="faq.subtitle">{copy.faq.subtitle}</h2>
+          </div>
+          <div class="mt-12 grid gap-4 lg:grid-cols-2" data-reveal>
             {
               copy.faq.items.map((item, index) => (
                 <details class="panel group p-6 lg:p-8">
@@ -282,7 +335,7 @@ const steps = [
           <div>
             <p class="eyebrow text-accent-soft">Azaman</p>
             <h2 class="mt-4 max-w-2xl text-h2" data-i18n="footer.cta_headline">{copy.footer.cta_headline}</h2>
-            <p class="mt-4 max-w-xl text-body text-[#c9c4b8]" data-i18n="footer.cta_sub">{copy.footer.cta_sub}</p>
+            <p class="mt-4 max-w-xl text-body text-[#d8d2c7]" data-i18n="footer.cta_sub">{copy.footer.cta_sub}</p>
             <a href="mailto:hello@azaman.ai" class="button mt-8 border-surface-raised bg-surface-raised text-ink hover:bg-accent-soft" data-i18n="footer.cta_button">
               {copy.footer.cta_button}
             </a>
@@ -292,9 +345,9 @@ const steps = [
               <nav aria-label={`${group.heading} links`}>
                 <p class="text-body-sm font-bold text-surface" data-i18n={`footer.secondary_nav.${group.key}.heading`}>{group.heading}</p>
                 <ul class="mt-4 space-y-3">
-                  {group.links.map((link, index) => (
+                  {group.links.map((link) => (
                     <li>
-                      <a href={link.href} class="text-body-sm text-[#c9c4b8] underline-offset-4 transition hover:text-white focus-visible:underline" data-i18n={link.key}>
+                      <a href={link.href} class="text-body-sm text-[#d8d2c7] underline-offset-4 transition hover:text-white focus-visible:underline" data-i18n={link.key}>
                         {link.label}
                       </a>
                     </li>
@@ -304,11 +357,39 @@ const steps = [
             ))}
           </div>
         </div>
-        <div class="flex flex-col gap-3 pt-8 text-body-sm text-[#c9c4b8] sm:flex-row sm:items-center sm:justify-between">
+        <div class="flex flex-col gap-3 pt-8 text-body-sm text-[#d8d2c7] sm:flex-row sm:items-center sm:justify-between">
           <p data-i18n="footer.copyright">{copy.footer.copyright}</p>
           <p data-i18n="footer.brand_credit">{copy.footer.brand_credit}</p>
         </div>
       </div>
     </footer>
+
+    <script is:inline>
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const revealItems = Array.from(document.querySelectorAll('[data-reveal]'));
+
+      if (reduceMotion || !('IntersectionObserver' in window)) {
+        revealItems.forEach((item) => item.classList.add('is-visible'));
+      } else {
+        document.documentElement.classList.add('reveal-ready');
+        const showAll = () => revealItems.forEach((item) => item.classList.add('is-visible'));
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: '0px 0px 140%' },
+        );
+        revealItems.forEach((item) => observer.observe(item));
+        window.setTimeout(() => {
+          showAll();
+          observer.disconnect();
+        }, 1400);
+      }
+    </script>
   </body>
 </html>
