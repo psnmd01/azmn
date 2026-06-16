@@ -28,10 +28,22 @@ export default {
           soft: '#fce7ef',
           on: '#ffffff',
         },
+        mesh: {
+          plum: '#3a0f24',
+          magenta: '#e0457b',
+          ink: '#0d1b2a',
+        },
         success: '#177245',
         warning: '#8a5a12',
       },
       fontFamily: {
+        display: [
+          'Fraunces',
+          'Georgia',
+          'Cambria',
+          '"Times New Roman"',
+          'serif',
+        ],
         sans: [
           'Inter',
           'ui-sans-serif',
@@ -41,17 +53,11 @@ export default {
           '"Segoe UI"',
           'sans-serif',
         ],
-        display: [
-          '"Fraunces Variable"',
-          'Georgia',
-          'serif',
-        ],
         mono: [
           '"Space Mono"',
-          '"JetBrains Mono"',
-          'ui-monospace',
-          'SFMono-Regular',
-          'Menlo',
+          '"SFMono-Regular"',
+          'Consolas',
+          '"Liberation Mono"',
           'monospace',
         ],
       },
@@ -77,19 +83,44 @@ export default {
         'section-lg': '8rem',
         'section-xl': '10rem',
         'hero-gap': '9rem',
+        manifesto: '6rem',
         rail: '5.5rem',
       },
       borderRadius: {
         card: '0.5rem',
         control: '999px',
+        arc: '48% 52% 0 0 / 7% 8% 0 0',
       },
       boxShadow: {
         nav: '0 1px 0 rgba(17, 19, 21, 0.08), 0 16px 40px rgba(17, 19, 21, 0.08)',
         card: '0 1px 0 rgba(17, 19, 21, 0.06), 0 20px 48px rgba(17, 19, 21, 0.08)',
         lift: '0 1px 0 rgba(17, 19, 21, 0.08), 0 28px 70px rgba(17, 19, 21, 0.12)',
+        mesh: '0 32px 120px rgba(13, 27, 42, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
+      },
+      transitionDuration: {
+        control: '160ms',
+        panel: '220ms',
+        reveal: '420ms',
+        signature: '900ms',
       },
       transitionTimingFunction: {
         expressive: 'cubic-bezier(0.2, 0.8, 0.2, 1)',
+        signature: 'cubic-bezier(0.16, 1, 0.3, 1)',
+        gate: 'cubic-bezier(0.65, 0, 0.35, 1)',
+      },
+      transitionDelay: {
+        'stagger-1': '70ms',
+        'stagger-2': '140ms',
+        'stagger-3': '210ms',
+        'stagger-4': '280ms',
+      },
+      backgroundImage: {
+        'hero-mesh':
+          'radial-gradient(circle at 18% 20%, rgba(224, 69, 123, 0.54), transparent 28%), radial-gradient(circle at 82% 18%, rgba(58, 15, 36, 0.88), transparent 34%), linear-gradient(135deg, #0d1b2a 0%, #3a0f24 52%, #101214 100%)',
+        'soft-arc-light':
+          'radial-gradient(120% 70% at 18% 0%, rgba(252, 231, 239, 0.62), transparent 48%), linear-gradient(180deg, #ffffff 0%, #f5f3ee 100%)',
+        'soft-arc-dark':
+          'radial-gradient(120% 70% at 82% 0%, rgba(188, 42, 100, 0.22), transparent 46%), linear-gradient(180deg, #101214 0%, #0d1b2a 100%)',
       },
     },
   },

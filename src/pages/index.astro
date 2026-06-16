@@ -45,6 +45,9 @@ const orchestrationSteps = copy.orchestration.steps.map((step, index) => ({
   index,
   number: String(index + 1).padStart(2, '0'),
 }));
+
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+const assetUrl = (path: string) => `${basePath}${path}`;
 ---
 
 <!doctype html>
@@ -56,7 +59,8 @@ const orchestrationSteps = copy.orchestration.steps.map((step, index) => ({
       name="description"
       content="Azaman spins up autonomous AI-agent companies that plan, build, review, and ship real software over Discord with human approval gates."
     />
-    <link rel="icon" href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/favicon.svg`} type="image/svg+xml" />
+    <link rel="preload" href={assetUrl('/fonts/fraunces-latin-standard-normal.woff2')} as="font" type="font/woff2" crossorigin />
+    <link rel="icon" href={assetUrl('/favicon.svg')} type="image/svg+xml" />
     <title>Azaman | Autonomous AI-agent companies</title>
   </head>
   <body class="bg-surface text-ink">
@@ -68,8 +72,8 @@ const orchestrationSteps = copy.orchestration.steps.map((step, index) => ({
 
     <header class="sticky top-0 z-40 border-b border-border bg-surface-raised/90 shadow-nav backdrop-blur">
       <nav class="container-page flex min-h-16 items-center justify-between gap-4 md:min-h-[72px]" aria-label="Primary navigation">
-        <a href="#main" class="flex items-center gap-3 text-body font-bold text-ink" aria-label="Azaman home" data-i18n="nav.brand">
-          <span class="grid size-8 place-items-center rounded-card bg-accent text-caption text-accent-on">A</span>
+        <a href="#main" class="flex items-center gap-3 text-body font-bold text-ink" aria-label={copy.nav.brand} data-i18n="nav.brand">
+          <span class="grid size-8 place-items-center rounded-card bg-accent text-caption text-accent-on" aria-hidden="true">A</span>
           <span>{copy.nav.brand}</span>
         </a>
         <div class="hidden items-center gap-7 md:flex">
@@ -91,6 +95,8 @@ const orchestrationSteps = copy.orchestration.steps.map((step, index) => ({
           <span class="hero-mesh__field hero-mesh__field--one" data-mesh-layer="one"></span>
           <span class="hero-mesh__field hero-mesh__field--two" data-mesh-layer="two"></span>
           <span class="hero-mesh__field hero-mesh__field--three" data-mesh-layer="three"></span>
+          <span class="hero-mesh__field hero-mesh__field--four" data-mesh-layer="four"></span>
+          <span class="hero-mesh__field hero-mesh__field--five" data-mesh-layer="five"></span>
         </div>
         <div class="container-page relative z-10 grid min-h-[calc(100svh-4rem)] gap-10 py-14 sm:py-16 lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:py-20 xl:gap-hero-gap">
           <div data-reveal>
@@ -98,7 +104,7 @@ const orchestrationSteps = copy.orchestration.steps.map((step, index) => ({
             <h1 class="mt-5 max-w-3xl font-display text-h2 text-white sm:text-h1 xl:text-display" data-i18n="hero.headline" data-split-title>
               {copy.hero.headline}
             </h1>
-            <p class="mt-6 max-w-2xl text-body text-[#eadde3] sm:text-body-lg" data-i18n="hero.sub">
+            <p class="mt-6 max-w-2xl text-body text-[color:var(--color-footer-muted)] sm:text-body-lg" data-i18n="hero.sub">
               {copy.hero.sub}
             </p>
             <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -134,7 +140,7 @@ const orchestrationSteps = copy.orchestration.steps.map((step, index) => ({
                 </span>
               </div>
 
-              <div class="crew-artifact mt-5">
+              <div class="crew-artifact mt-5" data-signature-motion>
                 <svg class="crew-artifact__lines" viewBox="0 0 620 420" role="img" aria-label="A gated build moving from brief to crew lanes to review and ship">
                   <defs>
                     <linearGradient id="crew-line-gradient" x1="0" x2="1" y1="0" y2="1">
@@ -413,13 +419,25 @@ const orchestrationSteps = copy.orchestration.steps.map((step, index) => ({
       } else {
         document.documentElement.classList.add('motion-ready');
         const startMotion = async () => {
-          const [{ default: gsap }, { default: ScrollTrigger }, { default: SplitText }] = await Promise.all([
+          const [{ default: gsap }, { default: ScrollTrigger }, { default: SplitText }, { default: CustomEase }] = await Promise.all([
             import('gsap'),
             import('gsap/ScrollTrigger'),
             import('gsap/SplitText'),
+            import('gsap/CustomEase'),
           ]);
 
-          gsap.registerPlugin(ScrollTrigger, SplitText);
+          gsap.registerPlugin(ScrollTrigger, SplitText, CustomEase);
+          CustomEase.create('az-expressive', '0.2,0.8,0.2,1');
+          CustomEase.create('az-signature', '0.16,1,0.3,1');
+          CustomEase.create('az-gate', '0.65,0,0.35,1');
+
+          const motion = {
+            control: 0.16,
+            panel: 0.22,
+            reveal: 0.42,
+            signature: 0.9,
+            stagger: 0.07,
+          };
 
           revealItems.forEach((item) => {
             gsap.fromTo(
@@ -427,8 +445,8 @@ const orchestrationSteps = copy.orchestration.steps.map((step, index) => ({
               { y: 18 },
               {
                 y: 0,
-                duration: 0.72,
-                ease: 'power3.out',
+                duration: motion.reveal,
+                ease: 'az-expressive',
                 scrollTrigger: {
                   trigger: item,
                   start: 'top 86%',
@@ -446,12 +464,12 @@ const orchestrationSteps = copy.orchestration.steps.map((step, index) => ({
               gsap.from(split.words, {
                 yPercent: 112,
                 opacity: 0,
-                duration: 0.9,
-                stagger: 0.045,
-                ease: 'power4.out',
+                duration: motion.signature,
+                stagger: motion.stagger,
+                ease: 'az-signature',
               });
             } catch {
-              gsap.from(title, { y: 18, opacity: 0, duration: 0.75, ease: 'power3.out' });
+              gsap.from(title, { y: 18, opacity: 0, duration: motion.signature, ease: 'az-signature' });
             }
           };
 
@@ -463,6 +481,9 @@ const orchestrationSteps = copy.orchestration.steps.map((step, index) => ({
 
           gsap.to('[data-mesh-layer="one"]', { x: 34, y: -22, scale: 1.08, duration: 9, repeat: -1, yoyo: true, ease: 'sine.inOut' });
           gsap.to('[data-mesh-layer="two"]', { x: -28, y: 24, scale: 1.12, duration: 11, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+          gsap.to('[data-mesh-layer="three"]', { x: 18, y: 28, scale: 1.1, duration: 12, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+          gsap.to('[data-mesh-layer="four"]', { x: -36, y: -12, rotation: -10, duration: 13, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+          gsap.to('[data-mesh-layer="five"]', { x: 22, y: 18, scale: 1.18, duration: 8, repeat: -1, yoyo: true, ease: 'sine.inOut' });
           gsap.to('[data-agent-node]', {
             y: (index) => (index % 2 === 0 ? -8 : 8),
             duration: 3.6,
@@ -471,7 +492,11 @@ const orchestrationSteps = copy.orchestration.steps.map((step, index) => ({
             yoyo: true,
             ease: 'sine.inOut',
           });
-          gsap.fromTo('[data-flow-line]', { strokeDasharray: 880, strokeDashoffset: 880 }, { strokeDashoffset: 0, duration: 1.8, ease: 'power2.out' });
+          gsap.fromTo(
+            '[data-flow-line]',
+            { strokeDasharray: 880, strokeDashoffset: 880 },
+            { strokeDashoffset: 0, duration: motion.signature, ease: 'az-gate' },
+          );
 
           const cards = gsap.utils.toArray('[data-orch-card]');
           if (cards.length) {
@@ -488,8 +513,8 @@ const orchestrationSteps = copy.orchestration.steps.map((step, index) => ({
 
             cards.forEach((card, index) => {
               orchestration
-                .to(card, { y: 0, duration: 0.55, ease: 'power3.out' }, index * 0.32)
-                .to('[data-orch-line]', { scaleX: (index + 1) / cards.length, duration: 0.55, ease: 'none' }, '<');
+                .to(card, { y: 0, duration: motion.panel, ease: 'az-expressive' }, index * (motion.stagger * 4))
+                .to('[data-orch-line]', { scaleX: (index + 1) / cards.length, duration: motion.signature, ease: 'az-gate' }, '<');
             });
           }
 
