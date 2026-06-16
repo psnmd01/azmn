@@ -9,6 +9,14 @@ const navItems = [
   { href: '#faq', label: copy.nav.link_faq, key: 'nav.link_faq' }
 ];
 
+const footerGroups = [
+  {
+    key: 'product',
+    heading: copy.footer.secondary_nav.product.heading,
+    links: navItems.map((item) => ({ href: item.href, label: item.label, key: item.key }))
+  }
+];
+
 const steps = [
   {
     title: copy.how_it_works.step_1_title,
@@ -40,6 +48,7 @@ const steps = [
       name="description"
       content="Azaman spins up autonomous AI-agent companies that plan, build, review, and ship real software over Discord with human approval gates."
     />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>Azaman | Autonomous AI-agent companies</title>
   </head>
   <body class="bg-surface text-ink">
@@ -51,7 +60,7 @@ const steps = [
 
     <header class="sticky top-0 z-40 border-b border-border bg-surface-raised/90 shadow-nav backdrop-blur">
       <nav class="container-page flex min-h-16 items-center justify-between gap-4 md:min-h-[72px]" aria-label="Primary navigation">
-        <a href="#" class="flex items-center gap-3 text-body font-bold text-ink" aria-label="Azaman home" data-i18n="nav.brand">
+        <a href="#main" class="flex items-center gap-3 text-body font-bold text-ink" aria-label="Azaman home" data-i18n="nav.brand">
           <span class="grid size-8 place-items-center rounded-card bg-accent text-caption text-accent-on">A</span>
           <span>{copy.nav.brand}</span>
         </a>
@@ -156,20 +165,18 @@ const steps = [
         <div class="container-page">
           <div class="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
             <div>
-              <p class="eyebrow">Features</p>
-              <h2 class="section-heading">Built for teams that need autonomy with accountability.</h2>
+              <p class="eyebrow" data-i18n="features.section_title">{copy.features.section_title}</p>
+              <h2 class="section-heading" data-i18n="features.subtitle">{copy.features.subtitle}</h2>
             </div>
-            <p class="section-copy">
-              Azaman is not a chatbot layer. It is a coordinated operating model for specialist agents, human gates, and reviewer-led delivery.
-            </p>
+            <p class="section-copy" data-i18n="features.intro">{copy.features.intro}</p>
           </div>
           <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {
-              copy.features.map((item, index) => (
+              copy.features.cards.map((item, index) => (
                 <article class="panel p-6 transition duration-200 ease-expressive hover:-translate-y-0.5 hover:border-border-strong lg:p-8">
                   <p class="text-caption text-accent-text">{String(index + 1).padStart(2, '0')}</p>
-                  <h3 class="mt-4 text-h4 text-ink" data-i18n={`features.${index}.title`}>{item.title}</h3>
-                  <p class="mt-3 text-body-sm text-ink-muted" data-i18n={`features.${index}.description`}>{item.description}</p>
+                  <h3 class="mt-4 text-h4 text-ink" data-i18n={`features.cards.${index}.title`}>{item.title}</h3>
+                  <p class="mt-3 text-body-sm text-ink-muted" data-i18n={`features.cards.${index}.description`}>{item.description}</p>
                 </article>
               ))
             }
@@ -202,7 +209,8 @@ const steps = [
         <div class="container-page">
           <div class="grid gap-8 md:grid-cols-[1fr_1.1fr] md:items-center">
             <div>
-              <p class="eyebrow" data-i18n="trust.section_title">{copy.trust.section_title}</p>
+              <p class="eyebrow">Trust</p>
+              <h2 class="section-heading" data-i18n="trust.section_title">{copy.trust.section_title}</h2>
               <p class="mt-4 text-body-lg text-ink-muted" data-i18n="trust.description">{copy.trust.description}</p>
             </div>
             <ul class="grid gap-3 sm:grid-cols-2" aria-label="Azaman trust metrics">
@@ -247,19 +255,19 @@ const steps = [
 
       <section id="faq" class="bg-surface-raised py-section lg:py-section-lg">
         <div class="container-page">
-          <p class="eyebrow">FAQ</p>
-          <h2 class="section-heading">Clear answers before your first crew starts.</h2>
+          <p class="eyebrow" data-i18n="faq.section_title">{copy.faq.section_title}</p>
+          <h2 class="section-heading" data-i18n="faq.subtitle">{copy.faq.subtitle}</h2>
           <div class="mt-12 grid gap-4 lg:grid-cols-2">
             {
-              copy.faq.map((item, index) => (
+              copy.faq.items.map((item, index) => (
                 <details class="panel group p-6 lg:p-8">
                   <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-h4 text-ink">
-                    <span data-i18n={`faq.${index}.question`}>{item.question}</span>
+                    <span data-i18n={`faq.items.${index}.question`}>{item.question}</span>
                     <span class="grid size-8 shrink-0 place-items-center rounded-control border border-border text-accent-text transition duration-200 ease-expressive group-open:rotate-45">
                       +
                     </span>
                   </summary>
-                  <p class="mt-4 text-body-sm text-ink-muted" data-i18n={`faq.${index}.answer`}>{item.answer}</p>
+                  <p class="mt-4 text-body-sm text-ink-muted" data-i18n={`faq.items.${index}.answer`}>{item.answer}</p>
                 </details>
               ))
             }
@@ -280,13 +288,13 @@ const steps = [
             </a>
           </div>
           <div class="grid gap-8 sm:grid-cols-3">
-            {Object.entries(copy.footer.secondary_nav).map(([groupKey, group]) => (
+            {footerGroups.map((group) => (
               <nav aria-label={`${group.heading} links`}>
-                <p class="text-body-sm font-bold text-surface" data-i18n={`footer.secondary_nav.${groupKey}.heading`}>{group.heading}</p>
+                <p class="text-body-sm font-bold text-surface" data-i18n={`footer.secondary_nav.${group.key}.heading`}>{group.heading}</p>
                 <ul class="mt-4 space-y-3">
                   {group.links.map((link, index) => (
                     <li>
-                      <a href={'url' in link ? link.url : '#'} class="text-body-sm text-[#c9c4b8] underline-offset-4 transition hover:text-white focus-visible:underline" data-i18n={`footer.secondary_nav.${groupKey}.links.${index}.label`}>
+                      <a href={link.href} class="text-body-sm text-[#c9c4b8] underline-offset-4 transition hover:text-white focus-visible:underline" data-i18n={link.key}>
                         {link.label}
                       </a>
                     </li>

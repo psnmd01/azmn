@@ -31,7 +31,11 @@
     "step_3_desc": "Review every PR, approve every deployment. The crew never ships without your sign-off. What used to take weeks ships in hours — without losing control."
   },
 
-  "features": [
+  "features": {
+    "section_title": "Autonomy, Accountability, Speed",
+    "subtitle": "Built for teams that need autonomy with accountability.",
+    "intro": "Every Azaman crew comes with built-in role clarity, parallel execution, and a reviewer gate — so you ship faster without sacrificing quality.",
+    "cards": [
     {
       "key": "feature_autonomous_crews",
       "title": "Autonomous Expert Crews",
@@ -62,7 +66,8 @@
       "title": "Multi-Model Intelligence",
       "description": "Crews can mix Claude, Codex, GPT, Gemini, and open-source models — each agent runs on the model best suited to its job. You define the blend; we handle the orchestration."
     }
-  ],
+    ]
+  },
 
   "use_cases": {
     "section_title": "Built for Real Work",
@@ -129,7 +134,10 @@
     ]
   },
 
-  "faq": [
+  "faq": {
+    "section_title": "Frequently Asked Questions",
+    "subtitle": "Clear answers before your first crew starts.",
+    "items": [
     {
       "key": "faq_what",
       "question": "What is Azaman, exactly?",
@@ -165,7 +173,8 @@
       "question": "How do I get started?",
       "answer": "Write a brief describing what you want to build. The PM agent turns it into a task board and timeline. Your crew stands up in minutes, not days. Start with a free trial — no credit card required."
     }
-  ],
+    ]
+  },
 
   "footer": {
     "cta_headline": "Ready to ship like a studio?",
