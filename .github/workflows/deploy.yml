@@ -23,7 +23,10 @@ jobs:
       - uses: actions/checkout@v4
       # withastro/action installs deps, runs `astro build`, and uploads the
       # Pages artifact. It reads `site` + `base` from astro.config.mjs.
+      # Node 22: Astro 6.x requires >=22.12 (the action defaults to Node 20).
       - uses: withastro/action@v3
+        with:
+          node-version: 22
 
   deploy:
     needs: build
