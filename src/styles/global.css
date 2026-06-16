@@ -225,57 +225,57 @@ a {
 .hero-mesh__field {
   position: absolute;
   display: block;
-  border-radius: 999px;
-  filter: blur(18px);
+  border-radius: 50%;
   opacity: 0.7;
   mix-blend-mode: screen;
   will-change: transform;
 }
 
 .hero-mesh__field--one {
-  width: 24rem;
-  height: 24rem;
-  right: 12%;
-  top: 12%;
-  background: rgba(188, 42, 100, 0.42);
+  width: 34rem;
+  height: 34rem;
+  right: 2%;
+  top: 0%;
+  background: radial-gradient(circle at 40% 50%, rgba(188, 42, 100, 0.35), rgba(188, 42, 100, 0.06) 60%, transparent 72%);
+  opacity: 0.55;
 }
 
 .hero-mesh__field--two {
-  width: 19rem;
-  height: 19rem;
-  left: 8%;
-  bottom: 14%;
-  background: rgba(58, 15, 36, 0.86);
+  width: 28rem;
+  height: 28rem;
+  left: 0%;
+  bottom: 0%;
+  background: radial-gradient(circle at 50% 60%, rgba(58, 15, 36, 0.7), rgba(58, 15, 36, 0.12) 58%, transparent 74%);
+  opacity: 0.5;
 }
 
 .hero-mesh__field--three {
-  width: 18rem;
-  height: 18rem;
-  right: 32%;
-  bottom: 10%;
-  background: rgba(13, 27, 42, 0.82);
+  width: 26rem;
+  height: 26rem;
+  right: 24%;
+  bottom: 0%;
+  background: radial-gradient(circle at 50% 40%, rgba(13, 27, 42, 0.7), rgba(13, 27, 42, 0.1) 56%, transparent 72%);
+  opacity: 0.45;
 }
 
 .hero-mesh__field--four {
-  width: 30rem;
-  height: 12rem;
-  right: 15%;
-  top: 42%;
+  width: 36rem;
+  height: 18rem;
+  right: 6%;
+  top: 34%;
   border-radius: 48% 52% 50% 50%;
-  background: linear-gradient(90deg, rgba(252, 231, 239, 0.02), rgba(224, 69, 123, 0.3), rgba(13, 27, 42, 0.2));
-  filter: blur(14px);
-  opacity: 0.48;
+  background: radial-gradient(ellipse at 50% 50%, rgba(224, 69, 123, 0.2), rgba(252, 231, 239, 0.04) 50%, transparent 68%);
+  opacity: 0.4;
   transform: rotate(-18deg);
 }
 
 .hero-mesh__field--five {
-  width: 16rem;
-  height: 16rem;
-  left: 42%;
-  top: 6%;
-  background: rgba(252, 231, 239, 0.12);
-  filter: blur(22px);
-  opacity: 0.38;
+  width: 24rem;
+  height: 24rem;
+  left: 34%;
+  top: 0%;
+  background: radial-gradient(circle at 50% 30%, rgba(252, 231, 239, 0.12), transparent 62%);
+  opacity: 0.32;
 }
 
 .generative-stage {
@@ -527,6 +527,13 @@ html.reveal-ready [data-signature-motion] {
 
   .artifact-node--ship {
     bottom: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .generative-stage,
+  .artifact-node {
+    backdrop-filter: none;
   }
 }
 
