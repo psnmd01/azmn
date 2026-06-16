@@ -58,27 +58,27 @@
     "cards": [
     {
       "key": "feature_discord_native",
-      "title": "Discord-Native Collaboration",
+      "title": "Discord-Native",
       "description": "Your crew lives where you work. Plans, builds, reviews, and ships, all through Discord. No new tooling."
     },
     {
       "key": "feature_human_gates",
-      "title": "Human-at-the-Key-Decisions",
+      "title": "Human Gates",
       "description": "AI acts. You decide. Every spec, every design review, every production merge needs a human yes. Control without friction."
     },
     {
-      "key": "feature_parallel_ship",
-      "title": "Parallel Execution, Serial Delivery",
-      "description": "Crew members work simultaneously. No handoffs, no queues. One researches while another prototypes."
-    },
-    {
       "key": "feature_codex_quality",
-      "title": "Agency-Grade Output",
+      "title": "Review Built-In",
       "description": "Every build passes through a dedicated reviewer. Code review, accessibility checks, visual QA — gated before it ships."
     },
     {
+      "key": "feature_parallel_ship",
+      "title": "Parallel Execution",
+      "description": "Crew members work simultaneously. No handoffs, no queues. One researches while another prototypes."
+    },
+    {
       "key": "feature_mixed_harness",
-      "title": "Multi-Model Intelligence",
+      "title": "Multi-Model",
       "description": "Each crew member runs the model best suited to their role — reasoning for planning, creativity for design, precision for code."
     }
     ]
