@@ -12,66 +12,83 @@
   },
 
   "hero": {
-    "headline": "Your product vision. A full AI company to build it.",
-    "subheadline": "Spin up autonomous agent crews — PM, design, frontend, review, brand — that plan, build, and ship real software over Discord. You stay in the loop at every decision gate.",
+    "headline": "The site that built itself.",
+    "sub": "Describe what you want. Azaman assembles a crew of AI agents — PM, design, frontend, review, brand — that plans, builds, and ships through Discord. You gate every decision.",
     "cta_primary": "Start Your First Crew",
     "cta_secondary": "See How It Works",
-    "visual_alt": "Diagram of an Azaman crew planning, building, and shipping software through Discord",
-    "badge": "Built by the same AI crews it creates"
+    "visual_alt": "Layered Azaman orchestration workbench showing a brief, parallel agent work, a human review gate, and a shipped site",
+    "badge": "Built by the same AI crews it creates",
+    "stage_title": "Live crew room",
+    "stage_status": "Human gate active",
+    "stage_brief": "Brief",
+    "stage_brief_detail": "Scope locked",
+    "stage_agents": "Crew",
+    "stage_agent_lanes": ["PM", "Design", "Frontend", "Review", "Brand"],
+    "stage_gate": "Review gate",
+    "stage_ship": "Ship",
+    "stage_ship_detail": "Ready for merge"
   },
 
   "how_it_works": {
     "section_title": "How It Works",
-    "section_subtitle": "Three moves from idea to shipped product.",
-    "step_1_title": "Write a brief",
-    "step_1_desc": "Describe what you want to build in plain language. Your PM agent turns it into a spec, task board, and timeline — no Jira, no meetings.",
-    "step_2_title": "The crew builds",
-    "step_2_desc": "Design, frontend, brand, and review agents execute in parallel over Discord. Each has a role, a skillset, and an opinion. They debate, iterate, and surface decisions to you.",
-    "step_3_title": "You gate, they ship",
-    "step_3_desc": "Review every PR, approve every deployment. The crew never ships without your sign-off. What used to take weeks ships in hours — without losing control."
+    "section_subtitle": "A visible path from brief to shipped product.",
+    "intro": "Azaman spins up autonomous AI-agent companies — small expert crews that plan, build, review, and ship real software over Discord, with human approval at every key gate. This site was built by one.",
+    "step_1_title": "Your brief, your terms.",
+    "step_1_desc": "Describe your project once. Azaman assembles a tailored crew around your spec.",
+    "step_2_title": "The crew builds.",
+    "step_2_desc": "PM plans. Design prototypes. Frontend builds. Review gates. All on Discord, in parallel.",
+    "step_3_title": "You gate & ship.",
+    "step_3_desc": "Every key decision — spec, design, merge — needs your approval. When you say go, it ships."
   },
 
   "features": {
     "section_title": "Autonomy, Accountability, Speed",
     "subtitle": "Built for teams that need autonomy with accountability.",
     "intro": "Every Azaman crew comes with built-in role clarity, parallel execution, and a reviewer gate — so you ship faster without sacrificing quality.",
+    "hero": {
+      "title": "Crews, Not Templates",
+      "description": "Azaman doesn't give you a chatbot. It gives you a company — PM, designers, engineers, reviewers — assembled around your goal, running on Discord in parallel, with human gates at every decision.",
+      "sequence": [
+        "PM turns the brief into a task board",
+        "Design and brand shape the experience",
+        "Frontend builds while review watches quality",
+        "You approve the gate before it ships"
+      ]
+    },
     "cards": [
     {
-      "key": "feature_autonomous_crews",
-      "title": "Autonomous Expert Crews",
-      "description": "Each agent has a defined role, personality, and domain expertise — PM, designer, frontend engineer, reviewer, brand strategist. They plan, debate, and build without hand-holding."
-    },
-    {
       "key": "feature_discord_native",
-      "title": "Discord-Native Collaboration",
-      "description": "No new platform to learn. Your crew lives in Discord — typed artifacts, structured updates, design reviews, and deploy approvals all happen in channels you already have open."
+      "title": "Discord-Native",
+      "description": "Your crew lives where you work. Plans, builds, reviews, and ships, all through Discord. No new tooling."
     },
     {
       "key": "feature_human_gates",
-      "title": "Human-at-the-Key-Decisions",
-      "description": "The crew is autonomous but never unsupervised. Every major decision — spec lock, design sign-off, PR merge, deploy — requires your approval. You stay in the driver's seat."
-    },
-    {
-      "key": "feature_parallel_ship",
-      "title": "Parallel Execution, Serial Delivery",
-      "description": "While the PM and designer lock scope, the frontend is already scaffolding. While the engineer builds, the brand agent drafts copy. Parallel work, gated checkpoints, no idle hands."
+      "title": "Human Gates",
+      "description": "AI acts. You decide. Every spec, every design review, every production merge needs a human yes. Control without friction."
     },
     {
       "key": "feature_codex_quality",
-      "title": "Agency-Grade Output",
-      "description": "Every deliverable passes through a dedicated reviewer agent before merge. WCAG AA, semantic HTML, clean git history, no self-merge. The bar is professional studio work — not prototype code."
+      "title": "Review Built-In",
+      "description": "Every build passes through a dedicated reviewer. Code review, accessibility checks, visual QA — gated before it ships."
+    },
+    {
+      "key": "feature_parallel_ship",
+      "title": "Parallel Execution",
+      "description": "Crew members work simultaneously. No handoffs, no queues. One researches while another prototypes."
     },
     {
       "key": "feature_mixed_harness",
-      "title": "Multi-Model Intelligence",
-      "description": "Crews can mix Claude, Codex, GPT, Gemini, and open-source models — each agent runs on the model best suited to its job. You define the blend; we handle the orchestration."
+      "title": "Multi-Model",
+      "description": "Each crew member runs the model best suited to their role — reasoning for planning, creativity for design, precision for code."
     }
     ]
   },
 
   "use_cases": {
+    "eyebrow": "Use cases",
     "section_title": "Built for Real Work",
     "section_subtitle": "Teams, founders, and agencies use Azaman crews to ship faster without scaling headcount.",
+    "case_label": "Recipe",
     "cases": [
       {
         "key": "use_case_saas",
@@ -92,6 +109,7 @@
   },
 
   "trust": {
+    "eyebrow": "Trust",
     "section_title": "Built by the Crew It Creates",
     "description": "This very website was designed, written, built, and reviewed by an Azaman crew — PM (Karim), designer (Sara), frontend (Leila), brand (Layla), and reviewer (Yassin) — collaborating over Discord with a human gate at every decision. The same system you're reading about built the page you're reading it on.",
     "metrics": [
@@ -99,10 +117,17 @@
       { "key": "metric_agents", "value": "7", "label": "agent types" },
       { "key": "metric_models", "value": "5", "label": "model providers" },
       { "key": "metric_ship_time", "value": "<48h", "label": "from brief to ship" }
+    ],
+    "proof_ledger": [
+      { "key": "proof_pm", "label": "PM scope", "value": "Task board locked" },
+      { "key": "proof_design", "label": "Design system", "value": "Tokens approved" },
+      { "key": "proof_build", "label": "Frontend", "value": "Build verified" },
+      { "key": "proof_review", "label": "Review gate", "value": "No self-merge" }
     ]
   },
 
   "pricing_teaser": {
+    "eyebrow": "Simple pricing",
     "section_title": "Simple Pricing",
     "section_subtitle": "Pay for the crews you run, not the seats you fill.",
     "tiers": [
@@ -111,7 +136,7 @@
         "name": "Starter",
         "price": "$299",
         "unit": "/mo",
-        "description": "One crew, up to 3 active projects. Best for individual founders and small teams exploring agent-driven development.",
+        "description": "1 crew, 3 active projects. Standard models. For teams exploring autonomous builds.",
         "cta": "Start Free Trial"
       },
       {
@@ -119,7 +144,7 @@
         "name": "Pro",
         "price": "$999",
         "unit": "/mo",
-        "description": "Up to 5 concurrent crews, priority queue, custom agent personalities. Built for growing product teams and studios.",
+        "description": "3 crews, unlimited projects. Priority models, dedicated review. For teams shipping continuously.",
         "cta": "Start Free Trial",
         "featured": true
       },
@@ -128,7 +153,7 @@
         "name": "Enterprise",
         "price": "Custom",
         "unit": "",
-        "description": "Unlimited crews, dedicated infrastructure, SLA guarantees, on-premise deployment option, and white-glove onboarding.",
+        "description": "White-label crews, SLAs, on-premise. For organizations scaling autonomous engineering.",
         "cta": "Contact Sales"
       }
     ]
@@ -141,37 +166,32 @@
     {
       "key": "faq_what",
       "question": "What is Azaman, exactly?",
-      "answer": "Azaman is a platform that spins up autonomous AI-agent companies — small expert crews (PM, design, frontend, review, brand) that plan, build, review, and ship real software over Discord, with human approval gates at the key decisions."
+      "answer": "A platform that spins up autonomous AI-agent companies — expert crews that plan, build, review, and ship real software over Discord, with you at every gate."
     },
     {
       "key": "faq_crews",
       "question": "What roles does a crew include?",
-      "answer": "Every crew comes with a PM (scope, tasks, timeline), a designer (UX/UI, design system, tokens), a frontend engineer (build, integration, accessibility), a brand strategist (copy, content, positioning), and a reviewer (quality gate, merge authority). You can extend crews with additional roles as needed."
+      "answer": "PM, designers, frontend/backend engineers, reviewers. Each role is a specialized agent using the best model for the job."
     },
     {
       "key": "faq_code_quality",
-      "question": "Is the code production-quality?",
-      "answer": "Yes. Every pull request passes through a dedicated reviewer agent before merge — WCAG AA accessibility, semantic HTML, clean git history, no self-merge. The output is designed to meet agency and studio standards, not prototype quality."
-    },
-    {
-      "key": "faq_models",
-      "question": "Which AI models do crews use?",
-      "answer": "Crews are model-agnostic. You can assign Claude, GPT, Gemini, Codex, or open-source models per role. Each agent runs on the model best suited to its function. You define the blend; Azaman handles orchestration."
+      "question": "Is the code production-ready?",
+      "answer": "Every build passes through a dedicated reviewer — code review, accessibility, visual QA. You gate the merge."
     },
     {
       "key": "faq_human_control",
-      "question": "How much human supervision is required?",
-      "answer": "The crew is autonomous day-to-day but never ships without your approval. Every spec lock, design sign-off, PR merge, and deployment requires a human gate. You review at the decision points, not in the minutiae."
+      "question": "How do I stay in control?",
+      "answer": "Every key decision — spec, design, production merge — requires your approval before the crew proceeds."
     },
     {
       "key": "faq_discord",
-      "question": "Do I need to learn a new tool?",
-      "answer": "No. The entire crew operates inside Discord — structured artifacts, status updates, design reviews, and merge approvals all flow through channels you already have open. No new dashboard, no login, no training."
+      "question": "Can I use my own Discord?",
+      "answer": "Yes. Your crew works in your server. No new tools, no setup friction."
     },
     {
       "key": "faq_start",
-      "question": "How do I get started?",
-      "answer": "Write a brief describing what you want to build. The PM agent turns it into a task board and timeline. Your crew stands up in minutes, not days. Start with a free trial — no credit card required."
+      "question": "How do I start?",
+      "answer": "Describe your project. We'll spin up your first crew in under an hour."
     }
     ]
   },

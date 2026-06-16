@@ -33,4 +33,8 @@ The production site is emitted to `dist/`.
 
 Landing-page copy is centralized in `src/content/copy.en.json` with stable `data-i18n`
 keys in the page markup. Design tokens live in `tailwind.config.mjs` and
-`src/styles/global.css`, aligned to Sara's locked DS-1 decision.
+`src/styles/global.css`, aligned to Sara's locked DS-2 decision.
+
+The Inter variable font is self-hosted from `public/fonts/inter-var.woff2` and
+preloaded in `src/pages/index.astro` so the intended type system renders without
+a runtime font service dependency.
