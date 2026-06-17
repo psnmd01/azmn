@@ -569,6 +569,7 @@ const assetUrl = (path: string) => `${basePath}${path}`;
         showStatic();
       } else {
         document.documentElement.classList.add('motion-ready');
+        document.documentElement.classList.add('reveal-ready');
         const startMotion = async () => {
           const [{ default: gsap }, { default: ScrollTrigger }, { default: SplitText }, { default: CustomEase }] = await Promise.all([
             import('gsap'),
