@@ -570,6 +570,11 @@ const assetUrl = (path: string) => `${basePath}${path}`;
       } else {
         document.documentElement.classList.add('motion-ready');
         document.documentElement.classList.add('reveal-ready');
+        // Failsafe: if the motion layer fails to load or reveals nothing within
+        // 2.5s, show all content statically — never leave the page blank.
+        setTimeout(() => {
+          if (!document.querySelector('[data-reveal].is-visible')) showStatic();
+        }, 2500);
         const startMotion = async () => {
           const [{ default: gsap }, { default: ScrollTrigger }, { default: SplitText }, { default: CustomEase }] = await Promise.all([
             import('gsap'),
@@ -591,22 +596,19 @@ const assetUrl = (path: string) => `${basePath}${path}`;
             stagger: 0.07,
           };
 
+          // Reveal each item by adding .is-visible when it scrolls into view —
+          // the CSS .is-visible rule fades + slides it in. (The prior build only
+          // tweened `y` and never added the class, so [data-reveal] stayed at
+          // opacity:0 and the whole page rendered blank.)
           revealItems.forEach((item) => {
-            gsap.fromTo(
-              item,
-              { y: 18 },
-              {
-                y: 0,
-                duration: motion.reveal,
-                ease: 'az-expressive',
-                scrollTrigger: {
-                  trigger: item,
-                  start: 'top 86%',
-                  once: true,
-                },
-              },
-            );
+            ScrollTrigger.create({
+              trigger: item,
+              start: 'top 88%',
+              once: true,
+              onEnter: () => item.classList.add('is-visible'),
+            });
           });
+          ScrollTrigger.refresh();
 
           const animateHeroTitle = () => {
             const title = document.querySelector('[data-split-title]');
