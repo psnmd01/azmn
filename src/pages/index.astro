@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import copy from '../content/copy.en.json';
+import BaseHead from '../components/BaseHead.astro';
 
 const navItems = [
   { href: '#how-it-works', label: copy.nav.link_how_it_works, key: 'nav.link_how_it_works' },
@@ -54,15 +55,7 @@ const assetUrl = (path: string) => `${basePath}${path}`;
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Azaman spins up autonomous AI-agent companies that plan, build, review, and ship real software over Discord with human approval gates."
-    />
-    <link rel="preload" href={assetUrl('/fonts/fraunces-latin-standard-normal.woff2')} as="font" type="font/woff2" crossorigin />
-    <link rel="icon" href={assetUrl('/favicon.svg')} type="image/svg+xml" />
-    <title>Azaman | Autonomous AI-agent companies</title>
+    <BaseHead />
   </head>
   <body class="bg-surface text-ink">
     <a
