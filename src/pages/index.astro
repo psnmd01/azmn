@@ -5,6 +5,7 @@ import copy from '../content/copy.en.json';
 const navItems = [
   { href: '#how-it-works', label: copy.nav.link_how_it_works, key: 'nav.link_how_it_works' },
   { href: '#features', label: copy.nav.link_features, key: 'nav.link_features' },
+  { href: '#use-cases', label: copy.nav.link_use_cases, key: 'nav.link_use_cases' },
   { href: '#pricing', label: copy.nav.link_pricing, key: 'nav.link_pricing' },
   { href: '#faq', label: copy.nav.link_faq, key: 'nav.link_faq' },
 ];
@@ -85,7 +86,10 @@ const assetUrl = (path: string) => `${basePath}${path}`;
             ))
           }
         </div>
-        <a href="#pricing" class="button button-primary" data-i18n="nav.cta">{copy.nav.cta}</a>
+        <div class="flex items-center gap-3">
+          <a href="#how-it-works" class="button button-ghost hidden md:inline-flex" data-i18n="nav.cta_secondary">{copy.nav.cta_secondary}</a>
+          <a href="#waitlist" class="button button-primary" data-i18n="nav.cta">{copy.nav.cta}</a>
+        </div>
       </nav>
     </header>
 
@@ -108,7 +112,7 @@ const assetUrl = (path: string) => `${basePath}${path}`;
               {copy.hero.sub}
             </p>
             <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-              <a href="#pricing" class="button button-primary min-h-[52px] px-6" data-i18n="hero.cta_primary">{copy.hero.cta_primary}</a>
+              <a href="#waitlist" class="button button-primary min-h-[52px] px-6" data-i18n="hero.cta_primary">{copy.hero.cta_primary}</a>
               <a
                 href="#how-it-works"
                 class="inline-flex min-h-11 items-center text-body-sm font-bold text-accent-soft underline-offset-4 transition hover:text-white hover:underline"
@@ -189,6 +193,27 @@ const assetUrl = (path: string) => `${basePath}${path}`;
         </div>
       </section>
 
+      <section id="core-benefits" class="bg-surface py-section lg:py-section-lg">
+        <div class="container-page">
+          <div class="max-w-3xl" data-reveal>
+            <p class="eyebrow" data-i18n="core_benefits.eyebrow">{copy.core_benefits.eyebrow}</p>
+            <h2 class="section-heading" data-i18n="core_benefits.section_title">{copy.core_benefits.section_title}</h2>
+            <p class="section-copy" data-i18n="core_benefits.section_subtitle">{copy.core_benefits.section_subtitle}</p>
+          </div>
+          <div class="mt-12 grid gap-6 lg:grid-cols-3 lg:items-stretch" data-reveal>
+            {
+              copy.core_benefits.items.map((benefit, index) => (
+                <article class="panel flex flex-col gap-5 p-6 lg:p-8" data-benefit-id={benefit.id}>
+                  <h3 class="font-display text-h3 text-ink" data-i18n={`core_benefits.items.${index}.headline`}>{benefit.headline}</h3>
+                  <p class="text-body text-ink-muted" data-i18n={`core_benefits.items.${index}.proof`}>{benefit.proof}</p>
+                  <p class="mt-auto border-t border-border pt-4 font-display text-body-sm text-ink-soft" data-i18n={`core_benefits.items.${index}.contrast`}>{benefit.contrast}</p>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
       <section id="how-it-works" class="orchestration-section border-b border-border bg-surface-raised py-section lg:py-section-lg">
         <div class="container-page grid gap-12 lg:grid-cols-[0.76fr_1.24fr] lg:items-start">
           <div class="lg:sticky lg:top-28" data-reveal>
@@ -266,21 +291,36 @@ const assetUrl = (path: string) => `${basePath}${path}`;
       </section>
 
       <section id="use-cases" class="border-y border-border bg-surface-muted py-section lg:py-section-lg">
-        <div class="container-page grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-          <div data-reveal>
+        <div class="container-page">
+          <div class="max-w-3xl" data-reveal>
             <p class="eyebrow" data-i18n="use_cases.eyebrow">{copy.use_cases.eyebrow}</p>
             <h2 class="section-heading" data-i18n="use_cases.section_title">{copy.use_cases.section_title}</h2>
             <p class="section-copy" data-i18n="use_cases.section_subtitle">{copy.use_cases.section_subtitle}</p>
           </div>
-          <div class="grid gap-4" data-reveal>
+          <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:items-stretch" data-reveal>
             {
-              copy.use_cases.cases.map((item, index) => (
-                <article class={`panel border-l-4 border-l-accent p-6 lg:p-8 ${index === 1 ? 'lg:ml-10' : index === 2 ? 'lg:ml-20' : ''}`}>
-                  <p class="text-caption text-ink-muted">
-                    <span data-i18n="use_cases.case_label">{copy.use_cases.case_label}</span> {index + 1}
-                  </p>
-                  <h3 class="mt-2 text-h3 text-ink" data-i18n={`use_cases.cases.${index}.title`}>{item.title}</h3>
-                  <p class="mt-3 text-body text-ink-muted" data-i18n={`use_cases.cases.${index}.description`}>{item.description}</p>
+              copy.use_cases.cases.map((useCase, index) => (
+                <article
+                  class={`tile-usecase ${useCase.kind === 'live' ? 'border-l-4 border-l-accent sm:col-span-2' : ''}`}
+                  data-kind={useCase.kind}
+                  data-key={useCase.key}
+                  tabindex="0"
+                  aria-label={useCase.title}
+                >
+                  <div class="flex items-start justify-between gap-3">
+                    {useCase.kind === 'live' ? (
+                      <p class="mono-label text-accent-text" data-i18n={`use_cases.cases.${index}.tag`}>{useCase.tag}</p>
+                    ) : (
+                      <span class="tile-usecase-chip" data-i18n={`use_cases.cases.${index}.tag`}>{useCase.tag}</span>
+                    )}
+                  </div>
+                  <h3 class="font-display text-h3 text-ink" data-i18n={`use_cases.cases.${index}.title`}>{useCase.title}</h3>
+                  <p class="tile-usecase-brief" data-i18n={`use_cases.cases.${index}.brief`}>{useCase.brief}</p>
+                  <p class="tile-usecase-shipped" data-i18n={`use_cases.cases.${index}.shipped`}>{useCase.shipped}</p>
+                  <div class="tile-usecase-crew">
+                    <p class="tile-usecase-built-by" data-i18n={`use_cases.cases.${index}.crew`}>{useCase.crew}</p>
+                  </div>
+                  <p class="mt-auto text-caption text-ink-soft" data-i18n={`use_cases.cases.${index}.verifiable`}>{useCase.verifiable}</p>
                 </article>
               ))
             }
@@ -358,6 +398,49 @@ const assetUrl = (path: string) => `${basePath}${path}`;
         </div>
       </section>
 
+      <section id="waitlist" class="bg-surface py-section lg:py-section-lg">
+        <div class="container-page max-w-3xl">
+          <div data-reveal>
+            <p class="eyebrow" data-i18n="lead_capture.eyebrow">{copy.lead_capture.eyebrow}</p>
+            <h2 class="section-heading" data-i18n="lead_capture.headline">{copy.lead_capture.headline}</h2>
+            <p class="section-copy" data-i18n="lead_capture.sub">{copy.lead_capture.sub}</p>
+          </div>
+          <form
+            class="form-lead mt-10"
+            data-reveal
+            data-lead-capture
+            data-success={copy.lead_capture.success_message}
+            data-error-invalid={copy.lead_capture.error_invalid}
+            data-error-generic={copy.lead_capture.error_generic}
+            aria-describedby="lead-capture-mid-trust lead-capture-mid-status"
+            novalidate
+          >
+            <label class="sr-only" for="lead-email-mid" data-i18n="lead_capture.email_aria_label">{copy.lead_capture.email_aria_label}</label>
+            <input
+              id="lead-email-mid"
+              type="email"
+              name="email"
+              class="input-lead"
+              placeholder={copy.lead_capture.email_placeholder}
+              aria-label={copy.lead_capture.email_aria_label}
+              autocomplete="email"
+              required
+              data-lead-input
+            />
+            <button
+              type="submit"
+              class="button button-primary min-h-12 px-6"
+              aria-label={copy.lead_capture.submit_aria_label}
+              data-i18n="lead_capture.submit_label"
+            >
+              {copy.lead_capture.submit_label}
+            </button>
+          </form>
+          <p id="lead-capture-mid-trust" class="form-lead-trust" data-i18n="lead_capture.trust_note">{copy.lead_capture.trust_note}</p>
+          <p id="lead-capture-mid-status" class="form-lead-trust mt-2 hidden" role="status" aria-live="polite" data-lead-status></p>
+        </div>
+      </section>
+
       <section id="faq" class="bg-surface-raised py-section lg:py-section-lg">
         <div class="container-page">
           <div data-reveal>
@@ -379,6 +462,48 @@ const assetUrl = (path: string) => `${basePath}${path}`;
               ))
             }
           </div>
+        </div>
+      </section>
+      <section class="manifesto-band">
+        <div class="container-page max-w-3xl text-center">
+          <div data-reveal>
+            <p class="eyebrow" data-i18n="lead_capture.eyebrow">{copy.lead_capture.eyebrow}</p>
+            <h2 class="section-heading mx-auto" data-i18n="lead_capture.headline">{copy.lead_capture.headline}</h2>
+            <p class="section-copy mx-auto" data-i18n="lead_capture.sub">{copy.lead_capture.sub}</p>
+          </div>
+          <form
+            class="form-lead mt-10 sm:justify-center"
+            data-reveal
+            data-lead-capture
+            data-success={copy.lead_capture.success_message}
+            data-error-invalid={copy.lead_capture.error_invalid}
+            data-error-generic={copy.lead_capture.error_generic}
+            aria-describedby="lead-capture-closer-trust lead-capture-closer-status"
+            novalidate
+          >
+            <label class="sr-only" for="lead-email-closer" data-i18n="lead_capture.email_aria_label">{copy.lead_capture.email_aria_label}</label>
+            <input
+              id="lead-email-closer"
+              type="email"
+              name="email"
+              class="input-lead sm:max-w-sm"
+              placeholder={copy.lead_capture.email_placeholder}
+              aria-label={copy.lead_capture.email_aria_label}
+              autocomplete="email"
+              required
+              data-lead-input
+            />
+            <button
+              type="submit"
+              class="button button-primary min-h-12 px-6"
+              aria-label={copy.lead_capture.submit_aria_label}
+              data-i18n="lead_capture.submit_label"
+            >
+              {copy.lead_capture.submit_label}
+            </button>
+          </form>
+          <p id="lead-capture-closer-trust" class="form-lead-trust mt-4" data-i18n="lead_capture.trust_note">{copy.lead_capture.trust_note}</p>
+          <p id="lead-capture-closer-status" class="form-lead-trust mt-2 hidden" role="status" aria-live="polite" data-lead-status></p>
         </div>
       </section>
     </main>
@@ -561,6 +686,42 @@ const assetUrl = (path: string) => `${basePath}${path}`;
           window.addEventListener('load', runMotion, { once: true });
         }
       }
+    </script>
+
+    <script>
+      const leadForms = document.querySelectorAll('[data-lead-capture]');
+      const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      leadForms.forEach((form) => {
+        const input = form.querySelector('[data-lead-input]');
+        const status = form.parentElement?.querySelector('[data-lead-status]');
+        const submit = form.querySelector('button[type="submit"]');
+        if (!input || !status || !submit) return;
+        const setStatus = (message, tone) => {
+          status.textContent = message;
+          status.classList.remove('hidden');
+          status.dataset.tone = tone;
+        };
+        input.addEventListener('input', () => {
+          if (input.getAttribute('aria-invalid') === 'true') {
+            input.removeAttribute('aria-invalid');
+            status.classList.add('hidden');
+          }
+        });
+        form.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const value = (input.value || '').trim();
+          if (!emailRe.test(value)) {
+            input.setAttribute('aria-invalid', 'true');
+            setStatus(form.dataset.errorInvalid || 'Invalid email.', 'error');
+            input.focus();
+            return;
+          }
+          input.removeAttribute('aria-invalid');
+          input.disabled = true;
+          submit.disabled = true;
+          setStatus(form.dataset.success || 'You’re on the list.', 'success');
+        });
+      });
     </script>
   </body>
 </html>
