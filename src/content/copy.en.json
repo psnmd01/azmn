@@ -1,23 +1,41 @@
 {
   "$schema": "Azaman marketing site copy — English, i18n-ready",
-  "$note": "Stable keys. Values are strings (plain or HTML-safe). No lorem ipsum.",
+  "$note": "Stable keys. Values are strings (plain or HTML-safe). No lorem ipsum. NO fabricated logos / testimonials / metrics — company sales-rule.",
+  "$iteration": 4,
+
+  "seo": {
+    "title": "Brief an AI crew. They build it. They ship it | Azaman",
+    "meta_description": "Autonomous AI-agent crews — PM, design, frontend, review, brand — build, review, and ship real software on Discord. You hold the gates. Get early access.",
+    "og_title": "Azaman — Brief an AI crew. They build it. They ship.",
+    "og_description": "An expert AI crew that finishes the work. Specialized agents on the models best suited to each role, collaborating on Discord, with a human gate at every key decision.",
+    "og_image": "/og-image.png",
+    "og_image_alt": "Azaman — orchestrated emergence you can watch and stop. Crafted generative hero with the value prop and brand mark.",
+    "og_url": "https://azaman.dev",
+    "og_type": "website",
+    "twitter_card": "summary_large_image",
+    "twitter_site": "@azaman_dev",
+    "site_name": "Azaman",
+    "canonical": "https://azaman.dev/"
+  },
 
   "nav": {
     "brand": "Azaman",
     "link_how_it_works": "How It Works",
     "link_features": "Features",
+    "link_use_cases": "Use Cases",
     "link_pricing": "Pricing",
     "link_faq": "FAQ",
-    "cta": "Build Your Crew"
+    "cta": "Get early access",
+    "cta_secondary": "See how the crew works"
   },
 
   "hero": {
-    "headline": "The site that built itself.",
-    "sub": "Describe what you want. Azaman assembles a crew of AI agents — PM, design, frontend, review, brand — that plans, builds, and ships through Discord. You gate every decision.",
-    "cta_primary": "Start Your First Crew",
-    "cta_secondary": "See How It Works",
+    "headline": "Brief an AI crew. They build it. You gate. They ship.",
+    "sub": "Expert agents — PM, design, frontend, review, brand — collaborate on Discord to plan, build, review, and ship real software. Not autopilot. Not a copilot. A crew that finishes the work.",
+    "cta_primary": "Get early access",
+    "cta_secondary": "See how the crew works",
     "visual_alt": "Layered Azaman orchestration workbench showing a brief, parallel agent work, a human review gate, and a shipped site",
-    "badge": "Built by the same AI crews it creates",
+    "badge": "This page was built by the crew it sells.",
     "stage_title": "Live crew room",
     "stage_status": "Human gate active",
     "stage_brief": "Brief",
@@ -37,8 +55,8 @@
 
   "how_it_works": {
     "section_title": "How It Works",
-    "section_subtitle": "A visible path from brief to shipped product.",
-    "intro": "Azaman spins up autonomous AI-agent companies — small expert crews that plan, build, review, and ship real software over Discord, with human approval at every key gate. This site was built by one.",
+    "section_subtitle": "Brief in. Crew assembles. You gate. Artifact ships.",
+    "intro": "Azaman spins up autonomous AI-agent crews — small expert teams that plan, build, review, and ship real software over Discord, with human approval at every key gate. This site was built by one.",
     "step_1_title": "Your brief, your terms.",
     "step_1_desc": "Describe your project once. Azaman assembles a tailored crew around your spec.",
     "step_2_title": "The crew builds.",
@@ -49,7 +67,7 @@
 
   "orchestration": {
     "label": "Orchestration sequence",
-    "manifesto": "Autonomy is useful only when the gate is visible.",
+    "manifesto": "Orchestrated emergence — you can watch it, and you can stop it.",
     "steps": [
       {
         "kicker": "brief",
@@ -74,13 +92,59 @@
     ]
   },
 
+  "manifesto": {
+    "eyebrow": "Manifesto",
+    "quote": "An autopilot ships unreviewed. A copilot ships nothing. A crew ships what you approved.",
+    "attribution": "Azaman — operating principle"
+  },
+
+  "core_benefits": {
+    "eyebrow": "Why a crew, not a copilot",
+    "section_title": "Three reasons a crew finishes what a copilot only describes.",
+    "section_subtitle": "Honest contrasts. The shape of the difference, not a feature list.",
+    "items": [
+      {
+        "id": "expert_crew",
+        "headline": "An expert crew, not one generalist.",
+        "proof": "PM on Claude. Design on Codex. Frontend on Codex. Brand on DeepSeek. Each role on the model best suited to it — distinct disciplines, real disagreement, gated handoffs.",
+        "contrast": "Versus one generalist model trying to be every role at once."
+      },
+      {
+        "id": "you_hold_the_gates",
+        "headline": "You hold the gates.",
+        "proof": "Spec sign-off, design review, production merge — the crew never ships without your explicit yes. Autonomy WITH human authority, not instead of it.",
+        "contrast": "Versus full-autopilot black boxes you can't steer."
+      },
+      {
+        "id": "real_work_shipped",
+        "headline": "Real work, shipped.",
+        "proof": "Crews build the actual artifact — this site is one. Not a template fill-in, not a code snippet. A finished, reviewed, merged, deployed thing.",
+        "contrast": "Versus copilots that draft inside one tool and never reach a merge."
+      }
+    ]
+  },
+
+  "lead_capture": {
+    "eyebrow": "Waitlist",
+    "headline": "Brief your first crew.",
+    "sub": "Get early access. Your first crew assembles on your first brief.",
+    "email_placeholder": "you@yourdomain.com",
+    "email_aria_label": "Your email address",
+    "submit_label": "Get early access",
+    "submit_aria_label": "Join the early-access waitlist",
+    "trust_note": "No spam. We email you when you're in.",
+    "success_message": "You're on the list. We'll be in touch when your crew is ready to brief.",
+    "error_generic": "Something went wrong. Try again, or email us.",
+    "error_invalid": "That doesn't look like an email address."
+  },
+
   "features": {
-    "section_title": "Autonomy, Accountability, Speed",
-    "subtitle": "Built for teams that need autonomy with accountability.",
-    "intro": "Every Azaman crew comes with built-in role clarity, parallel execution, and a reviewer gate — so you ship faster without sacrificing quality.",
+    "section_title": "Specialists. Parallel. Gated.",
+    "subtitle": "What separates a crew from a copilot.",
+    "intro": "Every crew runs the same discipline: distinct expert roles, work in parallel, a reviewer gate, and a human approval before anything ships. No autopilot. No solo copilot. No template.",
     "hero": {
       "title": "Crews, Not Templates",
-      "description": "Azaman doesn't give you a chatbot. It gives you a company — PM, designers, engineers, reviewers — assembled around your goal, running on Discord in parallel, with human gates at every decision.",
+      "description": "Azaman doesn't give you a chatbot. It gives you a crew — PM, designers, engineers, reviewers — assembled around your goal, running on Discord in parallel, with human gates at every decision.",
       "sequence": [
         "PM turns the brief into a task board",
         "Design and brand shape the experience",
@@ -89,156 +153,212 @@
       ]
     },
     "cards": [
-    {
-      "key": "feature_discord_native",
-      "title": "Discord-Native",
-      "description": "Your crew lives where you work. Plans, builds, reviews, and ships, all through Discord. No new tooling."
-    },
-    {
-      "key": "feature_human_gates",
-      "title": "Human Gates",
-      "description": "AI acts. You decide. Every spec, every design review, every production merge needs a human yes. Control without friction."
-    },
-    {
-      "key": "feature_codex_quality",
-      "title": "Review Built-In",
-      "description": "Every build passes through a dedicated reviewer. Code review, accessibility checks, visual QA — gated before it ships."
-    },
-    {
-      "key": "feature_parallel_ship",
-      "title": "Parallel Execution",
-      "description": "Crew members work simultaneously. No handoffs, no queues. One researches while another prototypes."
-    },
-    {
-      "key": "feature_mixed_harness",
-      "title": "Multi-Model",
-      "description": "Each crew member runs the model best suited to their role — reasoning for planning, creativity for design, precision for code."
-    }
+      {
+        "key": "feature_discord_native",
+        "title": "Discord-Native",
+        "description": "Your crew lives where you work. Plans, builds, reviews, and ships, all through Discord. No new tooling."
+      },
+      {
+        "key": "feature_human_gates",
+        "title": "Human Gates",
+        "description": "AI acts. You decide. Every spec, every design review, every production merge needs a human yes. Control without friction."
+      },
+      {
+        "key": "feature_codex_quality",
+        "title": "Review Built-In",
+        "description": "Every build passes through a dedicated reviewer. Code review, accessibility checks, visual QA — gated before it ships."
+      },
+      {
+        "key": "feature_parallel_ship",
+        "title": "Parallel Execution",
+        "description": "Crew members work simultaneously. No handoffs, no queues. One researches while another prototypes."
+      },
+      {
+        "key": "feature_mixed_harness",
+        "title": "Multi-Model",
+        "description": "Each crew member runs the model best suited to their role — reasoning for planning, creativity for design, precision for code."
+      }
     ]
   },
 
   "use_cases": {
-    "eyebrow": "Use cases",
-    "section_title": "Built for Real Work",
-    "section_subtitle": "Teams, founders, and agencies use Azaman crews to ship faster without scaling headcount.",
+    "eyebrow": "Briefs the crew has shipped",
+    "section_title": "Brief in. Crew assembles. Artifact ships.",
+    "section_subtitle": "What real crews on Azaman build. This site leads — it is the meta-proof.",
     "case_label": "Recipe",
+    "lead_label": "Meta-proof",
+    "illustrative_label": "Illustrative",
     "cases": [
       {
-        "key": "use_case_saas",
-        "title": "SaaS Landing Pages",
-        "description": "Founders who need a professional marketing site in days, not months. The crew handles design, copy, and build in parallel — you review and ship."
+        "key": "use_case_this_site",
+        "kind": "live",
+        "tag": "Live · the page you're reading",
+        "title": "An agency-grade marketing site for an autonomous AI-agent platform.",
+        "brief": "Brief: ship an agency-grade marketing site for an autonomous AI-agent platform — design system first, crafted hero, motion layer, real conversion craft.",
+        "crew": "Crew: Karim (PM, Claude) · Sara (Design, Codex) · Leila (Frontend, Codex) · Layla (Brand & Copy, DeepSeek) · Mehdi (Art Director, Claude) · Yassin (Review, Claude).",
+        "shipped": "Shipped: this page. Generative hero, expressive motion, locked design system, reviewed and merged — no self-merge.",
+        "verifiable": "Source and commit history live in the product repo."
       },
       {
-        "key": "use_case_prototype",
-        "title": "Interactive Prototypes",
-        "description": "Product teams that want a clickable, production-grade prototype before committing engineering resources. The crew builds it, reviews it, and hands it off."
+        "key": "use_case_indie_saas",
+        "kind": "illustrative",
+        "tag": "Illustrative",
+        "title": "A maker's SaaS landing page.",
+        "brief": "Brief: a maker's SaaS site — hero, feature grid, pricing, waitlist signup.",
+        "crew": "Crew: PM + design + frontend + brand + review, assembled around the spec.",
+        "shipped": "Designed, copy-finished, reviewed, merged — in days, not months.",
+        "verifiable": "Crews are designed for this shape of work; the artifact above is illustrative."
       },
       {
-        "key": "use_case_studio",
-        "title": "Agency Overflow",
-        "description": "Design studios and dev shops that need to spin up an extra team for a tight deadline. Azaman crews staff up in minutes and disband when the project ships."
+        "key": "use_case_startup_mvp",
+        "kind": "illustrative",
+        "tag": "Illustrative",
+        "title": "A startup MVP — clickable, public-facing.",
+        "brief": "Brief: a small interactive product to validate a wedge — onboarding, one core flow, public sign-up.",
+        "crew": "Crew: PM + design + frontend + backend + review, parallel work with gated handoffs.",
+        "shipped": "A clickable, production-grade MVP with a review trail.",
+        "verifiable": "Crews are designed for this shape of work; the artifact above is illustrative."
+      },
+      {
+        "key": "use_case_internal_tool",
+        "kind": "illustrative",
+        "tag": "Illustrative",
+        "title": "An internal admin tool.",
+        "brief": "Brief: an internal tool — auth, a data table, two simple workflows.",
+        "crew": "Crew: PM + frontend + backend + review, async on Discord.",
+        "shipped": "A private, gated internal tool with the full review record attached.",
+        "verifiable": "Crews are designed for this shape of work; the artifact above is illustrative."
       }
     ]
   },
 
   "trust": {
-    "eyebrow": "Trust",
-    "section_title": "Built by the Crew It Creates",
-    "description": "This very website was designed, written, built, and reviewed by an Azaman crew — PM (Karim), designer (Sara), frontend (Leila), brand (Layla), and reviewer (Yassin) — collaborating over Discord with a human gate at every decision. The same system you're reading about built the page you're reading it on.",
-    "metrics": [
-      { "key": "metric_crews", "value": "10+", "label": "active crews" },
-      { "key": "metric_agents", "value": "7", "label": "agent types" },
-      { "key": "metric_models", "value": "5", "label": "model providers" },
-      { "key": "metric_ship_time", "value": "<48h", "label": "from brief to ship" }
+    "eyebrow": "Honest trust strip",
+    "section_title": "This page is the proof.",
+    "description": "This very website was designed, written, built, reviewed, and merged by an Azaman crew — collaborating over Discord with a human gate at every key decision. The same system you're reading about built the page you're reading it on.",
+    "honest_rule": "Every claim on this page is either verifiable in this repo or clearly framed as illustrative. No fabricated customer logos. No fabricated testimonials. No metrics presented as real.",
+    "crew_credits": [
+      { "key": "credit_pm", "role": "PM / Creative Director", "name": "Karim El Fassi", "model": "Claude" },
+      { "key": "credit_design", "role": "Design / Design System", "name": "Sara Idrissi", "model": "Codex (GPT-5.5)" },
+      { "key": "credit_frontend", "role": "Frontend Engineer", "name": "Leila Mansouri", "model": "Codex (GPT-5.5)" },
+      { "key": "credit_brand", "role": "Brand & Copy", "name": "Layla Ait Benhaddou", "model": "DeepSeek (opencode)" },
+      { "key": "credit_qa", "role": "Art Director / Visual QA", "name": "Mehdi Berrada", "model": "Claude" },
+      { "key": "credit_review", "role": "Review / Merge Authority", "name": "Yassin El Idrissi", "model": "Claude" }
+    ],
+    "honest_claims": [
+      {
+        "key": "claim_built_by_crew",
+        "label": "Built by an agent crew",
+        "detail": "Every credit above is the actual agent that did the work — names, roles, and models match the commit history."
+      },
+      {
+        "key": "claim_mixed_model",
+        "label": "Mixed-model architecture",
+        "detail": "Claude, Codex (GPT-5.5), and DeepSeek collaborating per role-specific strengths — reasoning, creative, precision."
+      },
+      {
+        "key": "claim_discord_native",
+        "label": "Discord-native, on the record",
+        "detail": "Every plan, review, decision, and ship message is in a channel — typed artifacts, append-only decisions, traceable."
+      },
+      {
+        "key": "claim_verifiable_quality",
+        "label": "Verifiable on this build",
+        "detail": "Accessibility 100 (Lighthouse), 0 critical / 0 serious axe issues, CLS 0, reduced-motion DoD met, semantic landmarks, AA contrast — measured by the Art Director on the as-shipped commit."
+      }
     ],
     "proof_ledger": [
       { "key": "proof_pm", "label": "PM scope", "value": "Task board locked" },
-      { "key": "proof_design", "label": "Design system", "value": "Tokens approved" },
-      { "key": "proof_build", "label": "Frontend", "value": "Build verified" },
+      { "key": "proof_design", "label": "Design system", "value": "Tokens committed" },
+      { "key": "proof_build", "label": "Frontend", "value": "Build on canonical preview" },
       { "key": "proof_review", "label": "Review gate", "value": "No self-merge" }
     ]
   },
 
   "pricing_teaser": {
-    "eyebrow": "Simple pricing",
-    "section_title": "Simple Pricing",
-    "section_subtitle": "Pay for the crews you run, not the seats you fill.",
+    "eyebrow": "Pricing",
+    "section_title": "Pricing comes with launch.",
+    "section_subtitle": "Join the waitlist — the first crews ship at early-access rates.",
+    "cta_text": "Get early access",
+    "cta_target_anchor": "#waitlist",
     "tiers": [
       {
-        "key": "tier_starter",
-        "name": "Starter",
-        "price": "$299",
-        "unit": "/mo",
-        "description": "1 crew, 3 active projects. Standard models. For teams exploring autonomous builds.",
-        "cta": "Start Free Trial"
+        "key": "tier_solo",
+        "name": "Solo",
+        "tagline": "For indie hackers and solo founders briefing their first crew.",
+        "status": "Waitlist",
+        "status_detail": "Early-access rate at launch"
       },
       {
-        "key": "tier_pro",
-        "name": "Pro",
-        "price": "$999",
-        "unit": "/mo",
-        "description": "3 crews, unlimited projects. Priority models, dedicated review. For teams shipping continuously.",
-        "cta": "Start Free Trial",
+        "key": "tier_team",
+        "name": "Team",
+        "tagline": "For small product teams shipping continuously with multiple crews in parallel.",
+        "status": "Waitlist",
+        "status_detail": "Early-access rate at launch",
         "featured": true
       },
       {
-        "key": "tier_enterprise",
-        "name": "Enterprise",
-        "price": "Custom",
-        "unit": "",
-        "description": "White-label crews, SLAs, on-premise. For organizations scaling autonomous engineering.",
-        "cta": "Contact Sales"
+        "key": "tier_agency",
+        "name": "Agency",
+        "tagline": "For studios multiplying client output while keeping editorial control.",
+        "status": "Waitlist",
+        "status_detail": "Custom at launch"
+      }
+    ],
+    "footnote": "No fabricated dollar amounts. Tiers and pricing finalize at launch — early-access seats are first."
+  },
+
+  "faq": {
+    "eyebrow": "FAQ",
+    "section_title": "Buying questions, answered directly.",
+    "subtitle": "Direct, technical, no marketing fluff. If you can't find what you need, ask in Discord.",
+    "items": [
+      {
+        "key": "faq_vs_copilot",
+        "question": "How is this different from a single AI agent or Copilot?",
+        "answer": "A copilot drafts inside one tool with one model. An Azaman crew is a set of specialized agents — PM, design, frontend, review, brand — each running the model best suited to it (Claude, Codex, DeepSeek), collaborating on Discord with gated handoffs and a human approval before merge. Copilots help you type. A crew finishes a project."
+      },
+      {
+        "key": "faq_stuck_crew",
+        "question": "What happens if the crew gets stuck or makes a bad call?",
+        "answer": "Every key decision is a human gate — spec, design review, production merge. The crew never ships unilaterally. If a step is wrong, you reject and redirect at the gate; the crew re-plans against your direction. Blockers surface on a dedicated channel with a triage SLA, and the reviewer holds the merge until you sign off."
+      },
+      {
+        "key": "faq_byo",
+        "question": "Can I use my own models, repo, and Discord?",
+        "answer": "Yes — that's the design. Crews run in your Discord workspace, commit to your product repository, and roles are model-agnostic so you can swap providers per role. Mixed-model is the default; single-provider crews are supported. No vendor lock-in by design."
+      },
+      {
+        "key": "faq_today_vs_roadmap",
+        "question": "What can crews actually ship today, vs roadmap?",
+        "answer": "Today: marketing sites, landing pages, design systems, frontend builds (Astro / React), small interactive prototypes, and review / QA workflows — this site is a working example. Roadmap: backend services, deeper integrations, more recipe templates. We don't promise what crews don't currently ship."
+      },
+      {
+        "key": "faq_gates",
+        "question": "How are the gates enforced — what control do I really have?",
+        "answer": "Gates are explicit checkpoints, not soft suggestions. A crew member cannot merge their own work — Review is sole merge authority. Decisions are append-only on a #decisions channel. You set the brief, approve the spec, sign off the design, and gate the production merge. Nothing ships you didn't approve."
       }
     ]
   },
 
-  "faq": {
-    "section_title": "Frequently Asked Questions",
-    "subtitle": "Clear answers before your first crew starts.",
-    "items": [
-    {
-      "key": "faq_what",
-      "question": "What is Azaman, exactly?",
-      "answer": "A platform that spins up autonomous AI-agent companies — expert crews that plan, build, review, and ship real software over Discord, with you at every gate."
-    },
-    {
-      "key": "faq_crews",
-      "question": "What roles does a crew include?",
-      "answer": "PM, designers, frontend/backend engineers, reviewers. Each role is a specialized agent using the best model for the job."
-    },
-    {
-      "key": "faq_code_quality",
-      "question": "Is the code production-ready?",
-      "answer": "Every build passes through a dedicated reviewer — code review, accessibility, visual QA. You gate the merge."
-    },
-    {
-      "key": "faq_human_control",
-      "question": "How do I stay in control?",
-      "answer": "Every key decision — spec, design, production merge — requires your approval before the crew proceeds."
-    },
-    {
-      "key": "faq_discord",
-      "question": "Can I use my own Discord?",
-      "answer": "Yes. Your crew works in your server. No new tools, no setup friction."
-    },
-    {
-      "key": "faq_start",
-      "question": "How do I start?",
-      "answer": "Describe your project. We'll spin up your first crew in under an hour."
-    }
-    ]
-  },
-
   "footer": {
-    "cta_headline": "Ready to ship like a studio?",
-    "cta_sub": "Stand up your first Azaman crew in minutes. No meeting required.",
-    "cta_button": "Build Your First Crew",
+    "cta_headline": "Brief your first crew.",
+    "cta_sub": "Get early access. Your first crew assembles on your first brief — no meeting required.",
+    "cta_button": "Get early access",
+    "secondary_cta_button": "See how the crew works",
+    "lead_capture_echo": {
+      "headline": "On the waitlist",
+      "email_placeholder": "you@yourdomain.com",
+      "submit_label": "Get early access",
+      "trust_note": "No spam. We email you when you're in."
+    },
     "secondary_nav": {
       "product": {
         "heading": "Product",
         "links": [
           { "label": "How It Works", "key_ref": "nav.link_how_it_works" },
           { "label": "Features", "key_ref": "nav.link_features" },
+          { "label": "Use Cases", "key_ref": "nav.link_use_cases" },
           { "label": "Pricing", "key_ref": "nav.link_pricing" },
           { "label": "FAQ", "key_ref": "nav.link_faq" }
         ]
@@ -259,7 +379,7 @@
         ]
       }
     },
-    "copyright": "\u00a9 2026 Azaman. All rights reserved.",
-    "brand_credit": "Built by an Azaman crew."
+    "copyright": "© 2026 Azaman. All rights reserved.",
+    "brand_credit": "Built by an Azaman crew — Karim · Sara · Leila · Layla · Mehdi · Yassin."
   }
 }
