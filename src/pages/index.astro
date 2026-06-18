@@ -697,7 +697,6 @@ const assetUrl = (path: string) => `${basePath}${path}`;
       const showStatic = () => {
         revealItems.forEach((item) => item.classList.add('is-visible'));
       };
-      const hiddenRevealItems = () => revealItems.filter((item) => !item.classList.contains('is-visible'));
 
       if (reduceMotion) {
         document.documentElement.classList.add('motion-reduced');
@@ -722,11 +721,9 @@ const assetUrl = (path: string) => `${basePath}${path}`;
           revealItems.forEach((item) => revealObserver.observe(item));
         }
 
-        // Failsafe: if any reveal is still hidden after 2.5s, force all content
-        // visible. A partial reveal is still a broken page if lower sections blank.
-        setTimeout(() => {
-          if (hiddenRevealItems().length > 0) showStatic();
-        }, 2500);
+        // Failsafe: always force all content visible after 2.5s. showStatic()
+        // is idempotent, and a premature reveal is safer than one blank section.
+        setTimeout(showStatic, 2500);
         const startMotion = async () => {
           const [{ default: gsap }, { default: ScrollTrigger }, { default: SplitText }, { default: CustomEase }] = await Promise.all([
             import('gsap'),
