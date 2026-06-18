@@ -697,6 +697,7 @@ const assetUrl = (path: string) => `${basePath}${path}`;
       const showStatic = () => {
         revealItems.forEach((item) => item.classList.add('is-visible'));
       };
+      const hiddenRevealItems = () => revealItems.filter((item) => !item.classList.contains('is-visible'));
 
       if (reduceMotion) {
         document.documentElement.classList.add('motion-reduced');
@@ -704,10 +705,27 @@ const assetUrl = (path: string) => `${basePath}${path}`;
       } else {
         document.documentElement.classList.add('motion-ready');
         document.documentElement.classList.add('reveal-ready');
-        // Failsafe: if the motion layer fails to load or reveals nothing within
-        // 2.5s, show all content statically — never leave the page blank.
+
+        // Native visibility path runs before GSAP loads. ScrollTrigger can enhance
+        // motion, but content reveal must not depend on that async import succeeding.
+        if ('IntersectionObserver' in window) {
+          const revealObserver = new IntersectionObserver(
+            (entries, observer) => {
+              entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+              });
+            },
+            { rootMargin: '0px 0px -12% 0px', threshold: 0.01 },
+          );
+          revealItems.forEach((item) => revealObserver.observe(item));
+        }
+
+        // Failsafe: if any reveal is still hidden after 2.5s, force all content
+        // visible. A partial reveal is still a broken page if lower sections blank.
         setTimeout(() => {
-          if (!document.querySelector('[data-reveal].is-visible')) showStatic();
+          if (hiddenRevealItems().length > 0) showStatic();
         }, 2500);
         const startMotion = async () => {
           const [{ default: gsap }, { default: ScrollTrigger }, { default: SplitText }, { default: CustomEase }] = await Promise.all([
