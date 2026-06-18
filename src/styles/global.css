@@ -60,7 +60,7 @@
   --color-mesh-magenta: #e0457b;
   --color-mesh-ink: #0d1b2a;
   --color-footer-muted: #d8d2c7;
-  --color-receipts-bg: #0d1118;
+  --receipt-bg: #0d1118;
   --role-pm: #ff6ea8;
   --role-design: #e3b44b;
   --role-frontend: #65b7e6;
@@ -393,8 +393,61 @@ a {
     animation-delay: 600ms;
   }
 
+  .crew-node-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .crew-node {
+    position: absolute;
+    width: clamp(0.85rem, 1.4vw, 1.15rem);
+    height: clamp(0.85rem, 1.4vw, 1.15rem);
+    border-radius: 9999px;
+    border: 1px solid color-mix(in srgb, var(--accent) 72%, white 28%);
+    background:
+      radial-gradient(circle at 36% 30%, rgba(255,255,255,0.92), transparent 0.18rem),
+      var(--accent);
+    box-shadow:
+      0 0 0 0 color-mix(in srgb, var(--accent) 30%, transparent),
+      0 0 24px color-mix(in srgb, var(--accent) 42%, transparent);
+    opacity: 0.72;
+    animation: crew-node-pulse var(--motion-receipt-node-pulse) var(--ease-expressive) infinite;
+    animation-delay: calc(var(--node-index) * 120ms);
+  }
+
+  .crew-node--pm {
+    left: 20%;
+    top: 31%;
+  }
+
+  .crew-node--design {
+    left: 34%;
+    top: 22%;
+  }
+
+  .crew-node--frontend {
+    left: 48%;
+    top: 33%;
+  }
+
+  .crew-node--brand {
+    left: 61%;
+    top: 54%;
+  }
+
+  .crew-node--art {
+    left: 72%;
+    top: 37%;
+  }
+
+  .crew-node--review {
+    left: 82%;
+    top: 58%;
+  }
+
   .receipts-section {
-    @apply relative overflow-hidden bg-[color:var(--color-receipts-bg)] py-section text-white lg:py-section-lg;
+    @apply relative overflow-hidden bg-[color:var(--receipt-bg)] py-section text-white lg:py-section-lg;
   }
 
   .receipts-section::before {
@@ -469,7 +522,7 @@ a {
   }
 
   .receipt-card__index {
-    @apply grid size-7 place-items-center rounded-control text-caption font-bold text-[color:var(--color-receipts-bg)];
+    @apply grid size-7 place-items-center rounded-control text-caption font-bold text-[color:var(--receipt-bg)];
     background: var(--receipt-agent);
   }
 
@@ -606,6 +659,25 @@ html.reveal-ready [data-signature-motion] {
   }
 }
 
+@keyframes crew-node-pulse {
+  0%,
+  100% {
+    opacity: 0.68;
+    transform: scale(0.92);
+    box-shadow:
+      0 0 0 0 color-mix(in srgb, var(--accent) 24%, transparent),
+      0 0 20px color-mix(in srgb, var(--accent) 34%, transparent);
+  }
+
+  48% {
+    opacity: 1;
+    transform: scale(1.08);
+    box-shadow:
+      0 0 0 8px color-mix(in srgb, var(--accent) 0%, transparent),
+      0 0 32px color-mix(in srgb, var(--accent) 58%, transparent);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   :root {
     --motion-control: 0.01ms;
@@ -640,6 +712,12 @@ html.reveal-ready [data-signature-motion] {
   }
 
   .hero-receipt-peek__rail span {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+
+  .crew-node {
     animation: none !important;
     opacity: 1;
     transform: none;

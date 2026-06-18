@@ -86,6 +86,15 @@ const receiptBeats = copy.the_receipts.beats.map((beat, index) => {
   };
 });
 
+const heroCrewNodes = [
+  { key: 'pm', label: 'PM', className: 'crew-node--pm', accent: 'var(--role-pm)' },
+  { key: 'design', label: 'Design', className: 'crew-node--design', accent: 'var(--role-design)' },
+  { key: 'frontend', label: 'Frontend', className: 'crew-node--frontend', accent: 'var(--role-frontend)' },
+  { key: 'brand', label: 'Brand', className: 'crew-node--brand', accent: 'var(--role-brand)' },
+  { key: 'art', label: 'Art', className: 'crew-node--art', accent: 'var(--role-art)' },
+  { key: 'review', label: 'Review', className: 'crew-node--review', accent: 'var(--role-review)' },
+];
+
 const heroHeadlineParts = copy.hero.headline.split('. ');
 const heroLeadLine = heroHeadlineParts[0] ? `${heroHeadlineParts[0]}.` : copy.hero.headline;
 const heroSupportLine = heroHeadlineParts.slice(1).join('. ');
@@ -237,6 +246,20 @@ const assetUrl = (path: string) => `${basePath}${path}`;
                   <p class="font-mono text-caption text-[#d8d2c7]" data-i18n="hero.stage_ship">{copy.hero.stage_ship}</p>
                   <p class="mt-2 text-h4 text-white" data-i18n="hero.stage_ship_detail">{copy.hero.stage_ship_detail}</p>
                 </div>
+
+                <div class="crew-node-layer" aria-label="Crew roles in build order">
+                  {
+                    heroCrewNodes.map((node, index) => (
+                      <span
+                        class={`crew-node ${node.className}`}
+                        data-role={node.key}
+                        style={`--accent: ${node.accent}; --node-index: ${index};`}
+                      >
+                        <span class="sr-only">{node.label}</span>
+                      </span>
+                    ))
+                  }
+                </div>
               </div>
             </div>
           </aside>
@@ -261,7 +284,7 @@ const assetUrl = (path: string) => `${basePath}${path}`;
                 {
                   receiptBeats.map((beat) => (
                     <li
-                      class="receipt-card"
+                      class={`receipt-card ${beat.illustrative ? 'receipt-illustrative' : 'receipt-authentic'}`}
                       data-receipt-card
                       data-receipt-beat
                       data-agent={beat.agent.accent}
@@ -270,12 +293,12 @@ const assetUrl = (path: string) => `${basePath}${path}`;
                       data-receipt-authentic={beat.illustrative ? undefined : 'true'}
                       data-msg-id={beat.msg_id}
                     >
-                      <div class="receipt-card__meta">
+                      <div class="receipt-meta receipt-card__meta">
                         <span class="receipt-card__index">{beat.number}</span>
                         <span class="receipt-card__attr">{beat.agent.label} · {beat.agent.role}</span>
                         <time class="receipt-card__ts" datetime={beat.ts}>{beat.time} UTC</time>
                       </div>
-                      <p class="receipt-card__body" data-i18n={`the_receipts.beats.${beat.index}.excerpt`}>{beat.excerpt}</p>
+                      <p class="receipt-body receipt-card__body" data-i18n={`the_receipts.beats.${beat.index}.excerpt`}>{beat.excerpt}</p>
                       <div class="receipt-card__artifacts" data-receipt-artifact aria-label="Receipt artifacts">
                         {beat.illustrative ? (
                           <span class="receipt-chip receipt-chip--illustrative">[illustrative]</span>
