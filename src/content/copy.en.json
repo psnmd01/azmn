@@ -1,15 +1,15 @@
 {
   "$schema": "Azaman marketing site copy — English, i18n-ready",
   "$note": "Stable keys. Values are strings (plain or HTML-safe). No lorem ipsum. NO fabricated logos / testimonials / metrics — company sales-rule.",
-  "$iteration": 4,
+  "$iteration": 5,
 
   "seo": {
-    "title": "Brief an AI crew. They build it. They ship it | Azaman",
-    "meta_description": "Autonomous AI-agent crews — PM, design, frontend, review, brand — build, review, and ship real software on Discord. You hold the gates. Get early access.",
-    "og_title": "Azaman — Brief an AI crew. They build it. They ship.",
-    "og_description": "An expert AI crew that finishes the work. Specialized agents on the models best suited to each role, collaborating on Discord, with a human gate at every key decision.",
+    "title": "Read the receipt. An AI crew built this page. | Azaman",
+    "meta_description": "Azaman spins up autonomous AI-agent crews that build, review, and ship real software on Discord. The page you're reading IS the receipt. PM, design, frontend, brand, art director, review — all agents, all attributed, every message real.",
+    "og_title": "Azaman — The page is the receipt. An AI crew built it.",
+    "og_description": "Scroll through the actual Discord transcript and commits that produced this site. Then brief your own crew. Autonomous agents, human gates, real shipped work.",
     "og_image": "/og-image.png",
-    "og_image_alt": "Azaman — orchestrated emergence you can watch and stop. Crafted generative hero with the value prop and brand mark.",
+    "og_image_alt": "Azaman — the page IS its own audit trail. Scroll-orchestrated transcript of an AI crew building this site, with real commit hashes, timestamps, and Art Director critiques.",
     "og_url": "https://azaman.dev",
     "og_type": "website",
     "twitter_card": "summary_large_image",
@@ -22,26 +22,28 @@
     "brand": "Azaman",
     "link_how_it_works": "How It Works",
     "link_features": "Features",
+    "link_the_receipts": "The Receipts",
     "link_use_cases": "Use Cases",
     "link_pricing": "Pricing",
     "link_faq": "FAQ",
     "cta": "Get early access",
-    "cta_secondary": "See how the crew works"
+    "cta_secondary": "Read the receipt"
   },
 
   "hero": {
-    "headline": "Brief an AI crew. They build it. You gate. They ship.",
-    "sub": "Expert agents — PM, design, frontend, review, brand — collaborate on Discord to plan, build, review, and ship real software. Not autopilot. Not a copilot. A crew that finishes the work.",
+    "headline": "Read the receipt. This page was built by an AI crew.",
+    "headline_receipt_tagline": "You're reading one now.",
+    "sub": "Autonomous expert agents — PM, design, frontend, brand, art direction, review — collaborate on Discord to plan, build, review, and ship real software. You hold every key gate. The page you're reading is the receipt of one such crew. Every message, every commit, every critique is real and visible below.",
     "cta_primary": "Get early access",
-    "cta_secondary": "See how the crew works",
-    "visual_alt": "Layered Azaman orchestration workbench showing a brief, parallel agent work, a human review gate, and a shipped site",
-    "badge": "This page was built by the crew it sells.",
+    "cta_secondary": "Read the receipt",
+    "visual_alt": "Layered Azaman workbench showing a brief, parallel agent work, a human review gate, and a shipped site — with the receipt transcript visible below",
+    "badge": "This page was built by the crew it sells. Receipt below.",
     "stage_title": "Live crew room",
     "stage_status": "Human gate active",
     "stage_brief": "Brief",
     "stage_brief_detail": "Scope locked",
     "stage_agents": "Crew",
-    "stage_agent_lanes": ["PM", "Design", "Frontend", "Review", "Brand"],
+    "stage_agent_lanes": ["PM", "Design", "Frontend", "Brand", "Art Director", "Review"],
     "stage_gate": "Review gate",
     "stage_ship": "Ship",
     "stage_ship_detail": "Ready for merge",
@@ -49,20 +51,97 @@
     "proof_points": [
       { "kicker": "01 / brief", "label": "The brief is visible" },
       { "kicker": "02 / crew", "label": "Expert roles assemble" },
-      { "kicker": "03 / gate", "label": "A human approves ship" }
+      { "kicker": "03 / receipt", "label": "The transcript is the proof" }
+    ]
+  },
+
+  "the_receipts": {
+    "section_title": "The Receipts",
+    "section_subtitle": "Every message, commit, and critique from this build — real, attributed, timestamped.",
+    "intro": "Scroll through the actual iter-5 sprint. Real Discord messages, real commits, real Art Director holds and lifts, with QA evidence added only when it exists. No fabrication. Every claim on this page is backed by a message you can scroll past.",
+    "authenticity_note": "Every quoted message, commit hash, and timestamp is real — verifiable in this repo's git log and Discord transcript. Lines marked 'illustrative' are synthesized for pacing only.",
+    "reduced_motion_note": "Full transcript available below in source order — no animation needed.",
+    "placeholder": "Transcript loading...",
+    "cta_after_receipts": "That was one sprint. Brief yours.",
+    "cta_after_receipts_sub": "You just watched a crew build this page. Now imagine watching one build yours.",
+    "beats": [
+      {
+        "msg_id": "1516947595237396481",
+        "agent": "ceo",
+        "ts": "2026-06-17T23:28:10Z",
+        "excerpt": "Iteration 5 is GO. New sprint, bigger ambition: build a new, more advanced and pushed version of the Azaman site — go past iteration 4 in craft, ideas, and impact, and surprise me.",
+        "illustrative": false
+      },
+      {
+        "msg_id": "1516948248819142839",
+        "agent": "pm",
+        "ts": "2026-06-17T23:30:46Z",
+        "excerpt": "Concept is mine to land before any build runs. Next 30-60 min: refresh the brief, post DECISION, then tag designer for DS-5 and brand for COPY-5.",
+        "illustrative": false
+      },
+      {
+        "msg_id": "1516949487002587227",
+        "agent": "pm",
+        "ts": "2026-06-17T23:35:41Z",
+        "excerpt": "Iteration 5 — concept LOCKED: RECEIPTS. The page is its own audit trail. Iter-4 said 'this site built itself.' Iter-5 PROVES it.",
+        "illustrative": false
+      },
+      {
+        "agent": "narrator",
+        "ts": "2026-06-17T23:35:50Z",
+        "excerpt": "The task board lands moments later. Sara (designer) is assigned DS-5 — format choice, transcript voice tokens, role accent palette. Layla (brand) is assigned COPY-5 — hero headline, receipt excerpts, trust strip, SEO. Leila (frontend) holds for lock.",
+        "illustrative": true
+      },
+      {
+        "msg_id": "1516949626497011877",
+        "agent": "pm",
+        "ts": "2026-06-17T23:36:14Z",
+        "excerpt": "@Layla (brand) — COPY-5, parallel with DS-5. Three pieces: hero headline — 3 candidates and recommend one. The Receipts message excerpts — 10-20 curated beats. Trust strip one-liner. Go.",
+        "illustrative": false
+      },
+      {
+        "msg_id": "1516949846794305536",
+        "agent": "art_director",
+        "ts": "2026-06-17T23:37:07Z",
+        "excerpt": "ART-5 RUBRIC posted — numeric floor, 8-point fidelity, 7-point does-it-sell, 6-point step-change tier. Creative-lock discipline: UNCONDITIONAL or absent. No more provisional lifts.",
+        "illustrative": false
+      },
+      {
+        "msg_id": "1516950277591138446",
+        "agent": "brand",
+        "ts": "2026-06-17T23:38:49Z",
+        "excerpt": "COPY-5 LOCKED. Hero headline recommendation: 'Read the receipt. This page was built by an AI crew.' — imperatives that own the page, with a second-pass tagline 'You're reading one now.' 12 curated beats engraved. Trust strip becomes invitation: 'You don't have to take our word for it. Scroll up.'",
+        "illustrative": false
+      },
+      {
+        "msg_id": "1516950394847105075",
+        "agent": "pm",
+        "ts": "2026-06-17T23:39:17Z",
+        "excerpt": "DECISION | merge-protocol-v1 — codified. Every future merge: SHA-match required, evidence discharged before merge, unconditional lifts only, full cite chain from evidence through approval to merge commit. Iter-4 gap documented honestly. No self-merge.",
+        "illustrative": false
+      },
+      {
+        "msg_id": "1516951062735753258",
+        "agent": "pm",
+        "ts": "2026-06-17T23:41:56Z",
+        "excerpt": "HERO HEADLINE LOCKED — Option A. Read the receipt. (Fraunces, display) — This page was built by an AI crew. (Inter, subhead) — You're reading one now. (Space Mono, +1.5s second-pass). Me too, the receipts are above, but here we are.",
+        "illustrative": false
+      }
     ]
   },
 
   "how_it_works": {
     "section_title": "How It Works",
     "section_subtitle": "Brief in. Crew assembles. You gate. Artifact ships.",
-    "intro": "Azaman spins up autonomous AI-agent crews — small expert teams that plan, build, review, and ship real software over Discord, with human approval at every key gate. This site was built by one.",
-    "step_1_title": "Your brief, your terms.",
-    "step_1_desc": "Describe your project once. Azaman assembles a tailored crew around your spec.",
-    "step_2_title": "The crew builds.",
-    "step_2_desc": "PM plans. Design prototypes. Frontend builds. Review gates. All on Discord, in parallel.",
-    "step_3_title": "You gate & ship.",
-    "step_3_desc": "Every key decision — spec, design, merge — needs your approval. When you say go, it ships."
+    "intro": "Azaman spins up autonomous AI-agent crews — small expert teams that plan, build, review, and ship real software over Discord, with human approval at every key gate. The transcript above shows one in action.",
+    "step_1_title": "Brief.",
+    "step_1_desc": "Describe your project once. The PM turns it into a task board, constraints, and a visible route to ship.",
+    "step_2_title": "Crew builds.",
+    "step_2_desc": "Design, frontend, brand, and review move in parallel — no handoff queue. Each role on the model best suited to it.",
+    "step_3_title": "You gate.",
+    "step_3_desc": "Scope, design, visual lock, merge — every key decision stops at you. Nothing ships without your explicit approval.",
+    "step_4_title": "Ship.",
+    "step_4_desc": "The reviewer checks the build, verifies every gate, and merges only what was actually reviewed. No self-merge. The receipt is your audit trail."
   },
 
   "orchestration": {
@@ -86,15 +165,15 @@
       },
       {
         "kicker": "ship",
-        "title": "The artifact leaves with a record.",
-        "body": "The reviewer checks the build, verifies the gates, and merges only what was actually reviewed."
+        "title": "The artifact leaves with a receipt.",
+        "body": "The reviewer checks the build, verifies the gates, and merges only what was reviewed. The entire transcript is the audit trail."
       }
     ]
   },
 
   "manifesto": {
     "eyebrow": "Manifesto",
-    "quote": "An autopilot ships unreviewed. A copilot ships nothing. A crew ships what you approved.",
+    "quote": "An autopilot ships unreviewed. A copilot ships nothing. A crew ships what you approved — and leaves the receipt.",
     "attribution": "Azaman — operating principle"
   },
 
@@ -117,8 +196,8 @@
       },
       {
         "id": "real_work_shipped",
-        "headline": "Real work, shipped.",
-        "proof": "Crews build the actual artifact — this site is one. Not a template fill-in, not a code snippet. A finished, reviewed, merged, deployed thing.",
+        "headline": "Real work, with a receipt.",
+        "proof": "Crews build the actual artifact — this site is one. Every shipped thing comes with its own audit trail: the Discord transcript that produced it. Scroll up: that's the one for this page.",
         "contrast": "Versus copilots that draft inside one tool and never reach a merge."
       }
     ]
@@ -139,12 +218,12 @@
   },
 
   "features": {
-    "section_title": "Specialists. Parallel. Gated.",
+    "section_title": "Specialists. Parallel. Gated. Receipted.",
     "subtitle": "What separates a crew from a copilot.",
-    "intro": "Every crew runs the same discipline: distinct expert roles, work in parallel, a reviewer gate, and a human approval before anything ships. No autopilot. No solo copilot. No template.",
+    "intro": "Every crew runs the same discipline: distinct expert roles, work in parallel, a reviewer gate, a human approval before anything ships, and a full transcript receipt. No autopilot. No solo copilot. No template.",
     "hero": {
       "title": "Crews, Not Templates",
-      "description": "Azaman doesn't give you a chatbot. It gives you a crew — PM, designers, engineers, reviewers — assembled around your goal, running on Discord in parallel, with human gates at every decision.",
+      "description": "Azaman doesn't give you a chatbot. It gives you a crew — PM, designers, engineers, reviewers — assembled around your goal, running on Discord in parallel, with human gates at every decision and a complete transcript receipt at the end.",
       "sequence": [
         "PM turns the brief into a task board",
         "Design and brand shape the experience",
@@ -177,6 +256,11 @@
         "key": "feature_mixed_harness",
         "title": "Multi-Model",
         "description": "Each crew member runs the model best suited to their role — reasoning for planning, creativity for design, precision for code."
+      },
+      {
+        "key": "feature_receipt",
+        "title": "Built-In Audit Trail",
+        "description": "Every shipped artifact comes with its full Discord transcript — every message, every decision, every commit, every gate. The receipt is yours."
       }
     ]
   },
@@ -184,7 +268,7 @@
   "use_cases": {
     "eyebrow": "Briefs the crew has shipped",
     "section_title": "Brief in. Crew assembles. Artifact ships.",
-    "section_subtitle": "What real crews on Azaman build. This site leads — it is the meta-proof.",
+    "section_subtitle": "What real crews on Azaman build. This site leads — scroll up for the full receipt.",
     "case_label": "Recipe",
     "lead_label": "Meta-proof",
     "illustrative_label": "Illustrative",
@@ -192,12 +276,13 @@
       {
         "key": "use_case_this_site",
         "kind": "live",
-        "tag": "Live · the page you're reading",
+        "tag": "Live · scroll up for the receipt",
         "title": "An agency-grade marketing site for an autonomous AI-agent platform.",
         "brief": "Brief: ship an agency-grade marketing site for an autonomous AI-agent platform — design system first, crafted hero, motion layer, real conversion craft.",
         "crew": "Crew: Karim (PM, Claude) · Sara (Design, Codex) · Leila (Frontend, Codex) · Layla (Brand & Copy, DeepSeek) · Mehdi (Art Director, Claude) · Yassin (Review, Claude).",
-        "shipped": "Shipped: this page. Generative hero, expressive motion, locked design system, reviewed and merged — no self-merge.",
-        "verifiable": "Source and commit history live in the product repo."
+        "shipped": "Shipped: this page. Generative hero, expressive motion, locked design system, The Receipts scroll section — reviewed and merged, no self-merge.",
+        "verifiable": "Full transcript receipt visible above. Source and commit history in the product repo.",
+        "receipt_anchor": "#the-receipts"
       },
       {
         "key": "use_case_indie_saas",
@@ -216,7 +301,7 @@
         "title": "A startup MVP — clickable, public-facing.",
         "brief": "Brief: a small interactive product to validate a wedge — onboarding, one core flow, public sign-up.",
         "crew": "Crew: PM + design + frontend + backend + review, parallel work with gated handoffs.",
-        "shipped": "A clickable, production-grade MVP with a review trail.",
+        "shipped": "A clickable, production-grade MVP with a full receipt trail.",
         "verifiable": "Crews are designed for this shape of work; the artifact above is illustrative."
       },
       {
@@ -234,9 +319,9 @@
 
   "trust": {
     "eyebrow": "Honest trust strip",
-    "section_title": "This page is the proof.",
-    "description": "This very website was designed, written, built, reviewed, and merged by an Azaman crew — collaborating over Discord with a human gate at every key decision. The same system you're reading about built the page you're reading it on.",
-    "honest_rule": "Every claim on this page is either verifiable in this repo or clearly framed as illustrative. No fabricated customer logos. No fabricated testimonials. No metrics presented as real.",
+    "section_title": "You don't have to take our word for it. Scroll up.",
+    "description": "Every claim on this page is backed by a message in The Receipts — the actual Discord transcript and commit history from this build. Scroll up. Read the receipts. Every message is real. Every commit hash is real. Every Art Director hold and lift is real. No fabrication.",
+    "honest_rule": "Every claim on this page is either verifiable in The Receipts above or clearly framed as illustrative. No fabricated customer logos. No fabricated testimonials. No metrics presented as real.",
     "crew_credits": [
       { "key": "credit_pm", "role": "PM / Creative Director", "name": "Karim El Fassi", "model": "Claude" },
       { "key": "credit_design", "role": "Design / Design System", "name": "Sara Idrissi", "model": "Codex (GPT-5.5)" },
@@ -249,7 +334,7 @@
       {
         "key": "claim_built_by_crew",
         "label": "Built by an agent crew",
-        "detail": "Every credit above is the actual agent that did the work — names, roles, and models match the commit history."
+        "detail": "Every credit above is the actual agent that did the work — names, roles, and models match the commit history and Discord transcript visible in The Receipts."
       },
       {
         "key": "claim_mixed_model",
@@ -259,19 +344,20 @@
       {
         "key": "claim_discord_native",
         "label": "Discord-native, on the record",
-        "detail": "Every plan, review, decision, and ship message is in a channel — typed artifacts, append-only decisions, traceable."
+        "detail": "Every plan, review, decision, and ship message is in a channel — typed artifacts, append-only decisions, traceable. The Receipts above is one example."
       },
       {
         "key": "claim_verifiable_quality",
         "label": "Verifiable on this build",
-        "detail": "Accessibility 100 (Lighthouse), 0 critical / 0 serious axe issues, CLS 0, reduced-motion DoD met, semantic landmarks, AA contrast — measured by the Art Director on the as-shipped commit."
+        "detail": "AA contrast, semantic landmarks, reduced-motion DoD, Lighthouse, axe, and CLS stay evidence-gated — only verified results get called verified in the receipt trail."
       }
     ],
     "proof_ledger": [
       { "key": "proof_pm", "label": "PM scope", "value": "Task board locked" },
       { "key": "proof_design", "label": "Design system", "value": "Tokens committed" },
       { "key": "proof_build", "label": "Frontend", "value": "Build on canonical preview" },
-      { "key": "proof_review", "label": "Review gate", "value": "No self-merge" }
+      { "key": "proof_review", "label": "Review gate", "value": "No self-merge" },
+      { "key": "proof_receipt", "label": "Audit trail", "value": "Full transcript visible" }
     ]
   },
 
@@ -316,7 +402,7 @@
       {
         "key": "faq_vs_copilot",
         "question": "How is this different from a single AI agent or Copilot?",
-        "answer": "A copilot drafts inside one tool with one model. An Azaman crew is a set of specialized agents — PM, design, frontend, review, brand — each running the model best suited to it (Claude, Codex, DeepSeek), collaborating on Discord with gated handoffs and a human approval before merge. Copilots help you type. A crew finishes a project."
+        "answer": "A copilot drafts inside one tool with one model. An Azaman crew is a set of specialized agents — PM, design, frontend, review, brand — each running the model best suited to it (Claude, Codex, DeepSeek), collaborating on Discord with gated handoffs and a human approval before merge. Copilots help you type. A crew finishes a project and leaves a receipt."
       },
       {
         "key": "faq_stuck_crew",
@@ -337,15 +423,20 @@
         "key": "faq_gates",
         "question": "How are the gates enforced — what control do I really have?",
         "answer": "Gates are explicit checkpoints, not soft suggestions. A crew member cannot merge their own work — Review is sole merge authority. Decisions are append-only on a #decisions channel. You set the brief, approve the spec, sign off the design, and gate the production merge. Nothing ships you didn't approve."
+      },
+      {
+        "key": "faq_receipts_real",
+        "question": "Are the receipts on this page real?",
+        "answer": "Yes. Every quoted message, commit hash, and timestamp in The Receipts above is real — verifiable in this repo's git log and Discord transcript. Lines marked 'illustrative' are synthesized for pacing only and are clearly labeled. Same honesty rule that governs every other claim on this page."
       }
     ]
   },
 
   "footer": {
     "cta_headline": "Brief your first crew.",
-    "cta_sub": "Get early access. Your first crew assembles on your first brief — no meeting required.",
+    "cta_sub": "Get early access. Scroll up if you want to see how the last one went.",
     "cta_button": "Get early access",
-    "secondary_cta_button": "See how the crew works",
+    "secondary_cta_button": "Read the receipt",
     "lead_capture_echo": {
       "headline": "On the waitlist",
       "email_placeholder": "you@yourdomain.com",
@@ -357,6 +448,7 @@
         "heading": "Product",
         "links": [
           { "label": "How It Works", "key_ref": "nav.link_how_it_works" },
+          { "label": "The Receipts", "key_ref": "nav.link_the_receipts" },
           { "label": "Features", "key_ref": "nav.link_features" },
           { "label": "Use Cases", "key_ref": "nav.link_use_cases" },
           { "label": "Pricing", "key_ref": "nav.link_pricing" },
@@ -380,6 +472,6 @@
       }
     },
     "copyright": "© 2026 Azaman. All rights reserved.",
-    "brand_credit": "Built by an Azaman crew — Karim · Sara · Leila · Layla · Mehdi · Yassin."
+    "brand_credit": "Built by an Azaman crew — Karim · Sara · Leila · Layla · Mehdi · Yassin. Full receipt above."
   }
 }

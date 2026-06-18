@@ -6,6 +6,7 @@ import BaseHead from '../components/BaseHead.astro';
 const navItems = [
   { href: '#how-it-works', label: copy.nav.link_how_it_works, key: 'nav.link_how_it_works' },
   { href: '#features', label: copy.nav.link_features, key: 'nav.link_features' },
+  { href: '#the-receipts', label: copy.nav.link_the_receipts, key: 'nav.link_the_receipts' },
   { href: '#use-cases', label: copy.nav.link_use_cases, key: 'nav.link_use_cases' },
   { href: '#pricing', label: copy.nav.link_pricing, key: 'nav.link_pricing' },
   { href: '#faq', label: copy.nav.link_faq, key: 'nav.link_faq' },
@@ -38,15 +39,57 @@ const steps = [
     titleKey: 'how_it_works.step_3_title',
     bodyKey: 'how_it_works.step_3_desc',
   },
+  ...(copy.how_it_works.step_4_title
+    ? [
+        {
+          title: copy.how_it_works.step_4_title,
+          body: copy.how_it_works.step_4_desc,
+          titleKey: 'how_it_works.step_4_title',
+          bodyKey: 'how_it_works.step_4_desc',
+        },
+      ]
+    : []),
 ];
 
-const featureCardSpans = ['lg:col-span-4', 'lg:col-span-3', 'lg:col-span-3', 'lg:col-span-5', 'lg:col-span-5'];
+const featureCardSpans = ['lg:col-span-4', 'lg:col-span-3', 'lg:col-span-3', 'lg:col-span-4', 'lg:col-span-4', 'lg:col-span-4'];
 
 const orchestrationSteps = copy.orchestration.steps.map((step, index) => ({
   ...step,
   index,
   number: String(index + 1).padStart(2, '0'),
 }));
+
+const receiptAgentMeta = {
+  ceo: { label: 'CEO', role: 'Mounir', accent: 'rv' },
+  pm: { label: 'PM', role: 'Karim', accent: 'pm' },
+  designer: { label: 'Design', role: 'Sara', accent: 'sd' },
+  frontend: { label: 'Frontend', role: 'Leila', accent: 'fe' },
+  brand: { label: 'Brand', role: 'Layla', accent: 'br' },
+  art_director: { label: 'Art Director', role: 'Mehdi', accent: 'ad' },
+  reviewer: { label: 'Review', role: 'Yassin', accent: 'rv' },
+  narrator: { label: 'Bridge', role: 'Narrator', accent: 'pm' },
+};
+
+const receiptBeats = copy.the_receipts.beats.map((beat, index) => {
+  const agent = receiptAgentMeta[beat.agent] ?? { label: beat.agent, role: beat.agent, accent: 'rv' };
+  return {
+    ...beat,
+    index,
+    number: String(index + 1).padStart(2, '0'),
+    agent,
+    time: new Intl.DateTimeFormat('en', {
+      hour: '2-digit',
+      minute: '2-digit',
+      timeZone: 'UTC',
+      hour12: false,
+    }).format(new Date(beat.ts)),
+  };
+});
+
+const heroHeadlineParts = copy.hero.headline.split('. ');
+const heroLeadLine = heroHeadlineParts[0] ? `${heroHeadlineParts[0]}.` : copy.hero.headline;
+const heroSupportLine = heroHeadlineParts.slice(1).join('. ');
+const firstReceiptBeat = receiptBeats[0];
 
 const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
 const assetUrl = (path: string) => `${basePath}${path}`;
@@ -80,7 +123,7 @@ const assetUrl = (path: string) => `${basePath}${path}`;
           }
         </div>
         <div class="flex items-center gap-3">
-          <a href="#how-it-works" class="button button-ghost hidden md:inline-flex" data-i18n="nav.cta_secondary">{copy.nav.cta_secondary}</a>
+          <a href="#the-receipts" class="button button-ghost hidden md:inline-flex" data-i18n="nav.cta_secondary">{copy.nav.cta_secondary}</a>
           <a href="#waitlist" class="button button-primary" data-i18n="nav.cta">{copy.nav.cta}</a>
         </div>
       </nav>
@@ -99,16 +142,20 @@ const assetUrl = (path: string) => `${basePath}${path}`;
         <div class="container-page relative z-10 grid min-h-[calc(100svh-4rem)] gap-10 py-14 sm:py-16 lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:py-20 xl:gap-hero-gap">
           <div data-reveal>
             <p class="eyebrow text-accent-soft" data-i18n="hero.badge">{copy.hero.badge}</p>
-            <h1 class="mt-5 max-w-3xl font-display text-h2 text-white sm:text-h1 xl:text-display" data-i18n="hero.headline" data-split-title>
-              {copy.hero.headline}
+            <h1 class="mt-5 max-w-3xl" data-i18n="hero.headline" data-split-title>
+              <span class="block font-display text-h2 text-white sm:text-h1 xl:text-display">{heroLeadLine}</span>
+              <span class="mt-3 block max-w-2xl font-sans text-lead font-bold text-[color:var(--color-footer-muted)] sm:text-h3">
+                {heroSupportLine}
+              </span>
             </h1>
+            <p class="receipt-tagline mt-5" data-hero-tagline data-i18n="hero.headline_receipt_tagline">{copy.hero.headline_receipt_tagline}</p>
             <p class="mt-6 max-w-2xl text-body text-[color:var(--color-footer-muted)] sm:text-body-lg" data-i18n="hero.sub">
               {copy.hero.sub}
             </p>
             <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
               <a href="#waitlist" class="button button-primary min-h-[52px] px-6" data-i18n="hero.cta_primary">{copy.hero.cta_primary}</a>
               <a
-                href="#how-it-works"
+                href="#the-receipts"
                 class="inline-flex min-h-11 items-center text-body-sm font-bold text-accent-soft underline-offset-4 transition hover:text-white hover:underline"
                 data-i18n="hero.cta_secondary"
                 >{copy.hero.cta_secondary}</a
@@ -124,6 +171,15 @@ const assetUrl = (path: string) => `${basePath}${path}`;
                 ))
               }
             </ul>
+            <a href="#the-receipts" class="hero-receipt-peek mt-8" data-receipt-peek>
+              <span class="hero-receipt-peek__rail" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+              </span>
+              <span class="hero-receipt-peek__copy">
+                <span class="font-mono text-caption text-accent-soft">{firstReceiptBeat.time} UTC · {firstReceiptBeat.agent.label}</span>
+                <span class="mt-1 block text-body-sm text-white">{firstReceiptBeat.excerpt}</span>
+              </span>
+            </a>
           </div>
 
           <aside class="generative-stage" aria-label={copy.hero.visual_alt} data-reveal>
@@ -142,7 +198,7 @@ const assetUrl = (path: string) => `${basePath}${path}`;
                 <svg class="crew-artifact__lines" viewBox="0 0 620 420" role="img" aria-label="A gated build moving from brief to crew lanes to review and ship">
                   <defs>
                     <linearGradient id="crew-line-gradient" x1="0" x2="1" y1="0" y2="1">
-                      <stop offset="0" stop-color="#bc2a64"></stop>
+                      <stop offset="0" stop-color="var(--color-accent)"></stop>
                       <stop offset="0.52" stop-color="#e0457b"></stop>
                       <stop offset="1" stop-color="#fce7ef"></stop>
                     </linearGradient>
@@ -161,7 +217,7 @@ const assetUrl = (path: string) => `${basePath}${path}`;
                   <ul class="mt-3 grid grid-cols-2 gap-2">
                     {
                       copy.hero.stage_agent_lanes.map((lane, index) => (
-                        <li class={`rounded-card border border-white/10 bg-white/[0.07] p-2.5 ${index === 4 ? 'col-span-2' : ''}`}>
+                        <li class={`rounded-card border border-white/10 bg-white/[0.07] p-2.5 ${index >= 4 ? 'col-span-2 sm:col-span-1' : ''}`}>
                           <p class="flex items-center gap-2 font-mono text-caption font-bold text-white">
                             <span class="text-accent-soft">{String(index + 1).padStart(2, '0')}</span>
                             <span data-i18n={`hero.stage_agent_lanes.${index}`}>{lane}</span>
@@ -184,6 +240,61 @@ const assetUrl = (path: string) => `${basePath}${path}`;
               </div>
             </div>
           </aside>
+        </div>
+      </section>
+
+      <section id="the-receipts" class="receipts-section">
+        <div class="container-page">
+          <div class="receipts-shell" data-receipts>
+            <div class="receipts-copy" data-reveal>
+              <p class="eyebrow text-accent-soft" data-i18n="the_receipts.section_title">{copy.the_receipts.section_title}</p>
+              <h2 class="mt-4 font-display text-h2 text-white sm:text-h1" data-i18n="the_receipts.section_subtitle">
+                {copy.the_receipts.section_subtitle}
+              </h2>
+              <p class="mt-5 text-body-lg text-[color:var(--color-footer-muted)]" data-i18n="the_receipts.intro">{copy.the_receipts.intro}</p>
+              <p class="receipts-note mt-6" data-i18n="the_receipts.authenticity_note">{copy.the_receipts.authenticity_note}</p>
+              <p class="sr-only" data-i18n="the_receipts.reduced_motion_note">{copy.the_receipts.reduced_motion_note}</p>
+            </div>
+
+            <div class="receipts-transcript" data-reveal>
+              <ol class="receipts-list" aria-label={copy.the_receipts.section_subtitle}>
+                {
+                  receiptBeats.map((beat) => (
+                    <li
+                      class="receipt-card"
+                      data-receipt-card
+                      data-receipt-beat
+                      data-agent={beat.agent.accent}
+                      data-illustrative={beat.illustrative ? 'true' : 'false'}
+                      data-receipt-illustrative={beat.illustrative ? 'true' : undefined}
+                      data-receipt-authentic={beat.illustrative ? undefined : 'true'}
+                      data-msg-id={beat.msg_id}
+                    >
+                      <div class="receipt-card__meta">
+                        <span class="receipt-card__index">{beat.number}</span>
+                        <span class="receipt-card__attr">{beat.agent.label} · {beat.agent.role}</span>
+                        <time class="receipt-card__ts" datetime={beat.ts}>{beat.time} UTC</time>
+                      </div>
+                      <p class="receipt-card__body" data-i18n={`the_receipts.beats.${beat.index}.excerpt`}>{beat.excerpt}</p>
+                      <div class="receipt-card__artifacts" data-receipt-artifact aria-label="Receipt artifacts">
+                        {beat.illustrative ? (
+                          <span class="receipt-chip receipt-chip--illustrative">[illustrative]</span>
+                        ) : (
+                          <span class="receipt-chip">msg {beat.msg_id}</span>
+                        )}
+                      </div>
+                    </li>
+                  ))
+                }
+              </ol>
+            </div>
+          </div>
+
+          <div class="receipts-cta" data-reveal>
+            <h3 class="font-display text-h2 text-white" data-i18n="the_receipts.cta_after_receipts">{copy.the_receipts.cta_after_receipts}</h3>
+            <p class="mt-3 text-body text-[color:var(--color-footer-muted)]" data-i18n="the_receipts.cta_after_receipts_sub">{copy.the_receipts.cta_after_receipts_sub}</p>
+            <a href="#waitlist" class="button mt-6 border-accent bg-accent text-accent-on hover:-translate-y-px hover:shadow-card">{copy.hero.cta_primary}</a>
+          </div>
         </div>
       </section>
 
@@ -679,10 +790,51 @@ const assetUrl = (path: string) => `${basePath}${path}`;
               },
             });
 
-            cards.forEach((card, index) => {
+          cards.forEach((card, index) => {
               orchestration
                 .to(card, { y: 0, duration: motion.panel, ease: 'az-expressive' }, index * (motion.stagger * 4))
                 .to('[data-orch-line]', { scaleX: (index + 1) / cards.length, duration: motion.signature, ease: 'az-gate' }, '<');
+            });
+          }
+
+          gsap.fromTo(
+            '[data-hero-tagline]',
+            { opacity: 0, y: 10 },
+            { opacity: 1, y: 0, duration: motion.reveal, delay: 1.5, ease: 'az-expressive' },
+          );
+
+          const receiptCards = gsap.utils.toArray('[data-receipt-card]');
+          if (receiptCards.length) {
+            ScrollTrigger.matchMedia({
+              '(min-width: 960px)': () => {
+                const receiptTimeline = gsap.timeline({
+                  scrollTrigger: {
+                    trigger: '[data-receipts]',
+                    start: 'top top',
+                    end: `+=${receiptCards.length * 150}`,
+                    scrub: 0.6,
+                    pin: true,
+                  },
+                });
+                receiptCards.forEach((card, index) => {
+                  receiptTimeline.to(card, { '--receipt-active': 1, duration: 0.18, ease: 'none' }, index * 0.22);
+                  if (index > 0) receiptTimeline.to(receiptCards[index - 1], { '--receipt-active': 0, duration: 0.12, ease: 'none' }, '<');
+                });
+                return () => receiptTimeline.kill();
+              },
+              '(max-width: 959px)': () => {
+                receiptCards.forEach((card) => {
+                  ScrollTrigger.create({
+                    trigger: card,
+                    start: 'top 72%',
+                    end: 'bottom 42%',
+                    onEnter: () => card.style.setProperty('--receipt-active', '1'),
+                    onLeave: () => card.style.setProperty('--receipt-active', '0'),
+                    onEnterBack: () => card.style.setProperty('--receipt-active', '1'),
+                    onLeaveBack: () => card.style.setProperty('--receipt-active', '0'),
+                  });
+                });
+              },
             });
           }
 

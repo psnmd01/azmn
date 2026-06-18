@@ -60,6 +60,17 @@
   --color-mesh-magenta: #e0457b;
   --color-mesh-ink: #0d1b2a;
   --color-footer-muted: #d8d2c7;
+  --color-receipts-bg: #0d1118;
+  --role-pm: #ff6ea8;
+  --role-design: #e3b44b;
+  --role-frontend: #65b7e6;
+  --role-art: #f0784f;
+  --role-brand: #d28bff;
+  --role-review: #c6ccd4;
+  --motion-receipt-pin-enter: 700ms;
+  --motion-receipt-beat-step: 520ms;
+  --motion-receipt-artifact-expand: 320ms;
+  --motion-receipt-node-pulse: 1400ms;
   --font-display: "Fraunces", Georgia, Cambria, "Times New Roman", serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: "Space Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
@@ -341,6 +352,157 @@ a {
     flex-shrink: 0;
     color: currentColor;
   }
+
+  /* ---- DS-5 Receipts components ---- */
+
+  .receipt-tagline {
+    @apply font-mono text-[0.875rem] font-bold leading-[1.375rem] text-accent-soft;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-receipt-peek {
+    @apply grid max-w-2xl grid-cols-[auto_1fr] gap-4 rounded-card border border-white/10 bg-white/[0.055] p-4 backdrop-blur transition duration-panel ease-expressive hover:border-accent-soft/70 hover:bg-white/[0.075] focus-visible:border-accent-soft;
+  }
+
+  .hero-receipt-peek__rail {
+    @apply flex items-center gap-1.5 pt-1;
+  }
+
+  .hero-receipt-peek__rail span {
+    @apply block size-2 rounded-control bg-accent-soft;
+    animation: crew-pulse var(--motion-receipt-node-pulse) var(--ease-expressive) infinite;
+  }
+
+  .hero-receipt-peek__rail span:nth-child(2) {
+    animation-delay: 120ms;
+  }
+
+  .hero-receipt-peek__rail span:nth-child(3) {
+    animation-delay: 240ms;
+  }
+
+  .hero-receipt-peek__rail span:nth-child(4) {
+    animation-delay: 360ms;
+  }
+
+  .hero-receipt-peek__rail span:nth-child(5) {
+    animation-delay: 480ms;
+  }
+
+  .hero-receipt-peek__rail span:nth-child(6) {
+    animation-delay: 600ms;
+  }
+
+  .receipts-section {
+    @apply relative overflow-hidden bg-[color:var(--color-receipts-bg)] py-section text-white lg:py-section-lg;
+  }
+
+  .receipts-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 12% 12%, rgba(242, 111, 168, 0.18), transparent 28rem),
+      radial-gradient(circle at 84% 34%, rgba(117, 167, 255, 0.14), transparent 30rem),
+      linear-gradient(180deg, rgba(255,255,255,0.035), transparent 24rem);
+  }
+
+  .receipts-shell {
+    @apply relative z-10 grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start;
+  }
+
+  .receipts-copy {
+    @apply lg:sticky lg:top-28;
+  }
+
+  .receipts-note {
+    @apply rounded-card border border-white/10 bg-white/[0.055] p-4 font-mono text-caption leading-6 text-[color:var(--color-footer-muted)];
+  }
+
+  .receipts-transcript {
+    @apply rounded-card border border-white/10 bg-black/20 p-3 shadow-mesh backdrop-blur sm:p-5;
+  }
+
+  .receipts-list {
+    @apply grid gap-3;
+  }
+
+  .receipt-card {
+    --receipt-active: 0;
+    --receipt-agent: var(--role-review);
+    @apply rounded-card border bg-white/[0.055] p-4 transition duration-panel ease-expressive sm:p-5;
+    border-color: color-mix(in srgb, var(--receipt-agent) calc(32% + (var(--receipt-active) * 42%)), rgba(255,255,255,0.12));
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.06),
+      0 calc(10px + (var(--receipt-active) * 14px)) calc(28px + (var(--receipt-active) * 34px)) rgba(0,0,0,calc(0.16 + (var(--receipt-active) * 0.18)));
+    transform: translateY(calc((1 - var(--receipt-active)) * 2px));
+  }
+
+  .receipt-card[data-agent="pm"] {
+    --receipt-agent: var(--role-pm);
+  }
+
+  .receipt-card[data-agent="sd"] {
+    --receipt-agent: var(--role-design);
+  }
+
+  .receipt-card[data-agent="fe"] {
+    --receipt-agent: var(--role-frontend);
+  }
+
+  .receipt-card[data-agent="ad"] {
+    --receipt-agent: var(--role-art);
+  }
+
+  .receipt-card[data-agent="br"] {
+    --receipt-agent: var(--role-brand);
+  }
+
+  .receipt-card[data-agent="rv"] {
+    --receipt-agent: var(--role-review);
+  }
+
+  .receipt-card__meta {
+    @apply flex flex-wrap items-center gap-2 font-mono text-[0.75rem] font-bold leading-[1.125rem];
+    letter-spacing: 0.04em;
+  }
+
+  .receipt-card__index {
+    @apply grid size-7 place-items-center rounded-control text-caption font-bold text-[color:var(--color-receipts-bg)];
+    background: var(--receipt-agent);
+  }
+
+  .receipt-card__attr {
+    @apply rounded-control border px-2.5 py-1 uppercase;
+    border-color: color-mix(in srgb, var(--receipt-agent) 48%, transparent);
+    color: var(--receipt-agent);
+  }
+
+  .receipt-card__ts {
+    @apply text-[0.75rem] text-[color:var(--color-footer-muted)] opacity-70;
+  }
+
+  .receipt-card__body {
+    @apply mt-4 font-sans text-body font-medium text-white;
+  }
+
+  .receipt-card__artifacts {
+    @apply mt-4 flex flex-wrap gap-2;
+  }
+
+  .receipt-chip {
+    @apply inline-flex min-h-7 items-center rounded-control border border-white/15 bg-white/[0.045] px-3 font-mono text-[0.75rem] font-bold leading-4 text-[color:var(--color-footer-muted)];
+    letter-spacing: 0.04em;
+  }
+
+  .receipt-chip--illustrative {
+    @apply border-accent-soft/50 bg-accent-soft/10 font-bold text-accent-soft;
+  }
+
+  .receipts-cta {
+    @apply relative z-10 mt-12 rounded-card border border-white/10 bg-white/[0.055] p-6 text-center backdrop-blur md:p-8;
+  }
 }
 
 .hero-mesh {
@@ -431,6 +593,19 @@ html.reveal-ready [data-signature-motion] {
     stroke-dashoffset var(--motion-signature) var(--ease-gate);
 }
 
+@keyframes crew-pulse {
+  0%,
+  100% {
+    opacity: 0.38;
+    transform: scale(0.86);
+  }
+
+  42% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   :root {
     --motion-control: 0.01ms;
@@ -462,5 +637,15 @@ html.reveal-ready [data-signature-motion] {
 
   .faq-disclosure-chevron {
     transition: none !important;
+  }
+
+  .hero-receipt-peek__rail span {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+
+  .receipt-card {
+    --receipt-active: 1 !important;
   }
 }
